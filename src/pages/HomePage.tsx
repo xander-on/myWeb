@@ -1,10 +1,11 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/shared/neo_brutalist/components/ui/button"
+import { Input } from "@/shared/neo_brutalist/components/ui/input"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/shared/neo_brutalist/components/ui/card"
 
 export const HomePage = () => {
   return (
     <div>
-
+      homepage
       <Card className="w-full max-w-sm">
         <CardHeader>
           <CardTitle>Login to your account</CardTitle>
@@ -16,7 +17,12 @@ export const HomePage = () => {
           <form>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="m@example.com"
+                  required
+                />
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">

@@ -13,11 +13,11 @@
   "iconLibrary": "lucide",
   "rtl": false,
   "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
+    "components": "@/shared/neo_brutalist/components",
+    "ui": "@/shared/neo_brutalist/components/ui",
+    "utils": "@/shared/neo_brutalist/lib/utils",
+    "lib": "@/shared/neo_brutalist/lib",
+    "hooks": "@/shared/neo_brutalist/hooks"
   },
   "menuColor": "default",
   "menuAccent": "subtle",
