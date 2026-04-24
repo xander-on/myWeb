@@ -1,8 +1,7 @@
-import { Link }              from "react-router-dom";
 import { GeneralLoader }     from "@/shared/components";
 import { capitalizeFirst }   from "@/shared/utils";
 import { faGithub }          from "@fortawesome/free-brands-svg-icons";
-import { faEye, faDownload } from "@fortawesome/free-solid-svg-icons";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { Gallery, Tag }      from "@/shared/components";
 import { FontAwesomeIcon }   from "@fortawesome/react-fontawesome";
 import ReactMarkdown         from "react-markdown";
@@ -11,7 +10,8 @@ import { Button } from "@/shared/neo_brutalist/components/ui/button";
 
 export const ProjectDetailsPage = () => {
 
-  const { project, loading } = useProjectDetails();
+  const { project } = useProjectDetails();
+  console.log(project);
 
   if (!project) return <GeneralLoader />;
 
@@ -38,11 +38,11 @@ export const ProjectDetailsPage = () => {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
         <div className="flex justify-center">
-          <div className="w-[400px] max-h-[300px] flex items-center justify-center p-2 bg-background">
+          <div className="w-100 max-h-75 flex items-center justify-center p-2 bg-background">
             <img
               src={cover}
               alt={name}
-              className="max-w-full max-h-[300px] object-contain"
+              className="max-w-full max-h-75 object-contain"
             />
           </div>
         </div>

@@ -1,59 +1,39 @@
-import { useEffect, useState } from "react";
-import { projectsService }     from "@/features/projects/services/ProjectService";
-import type { ProjectResponse }        from "@/features/projects/types/projectResponse";
-import { ProjectCard } from "@/features/projects/components";
-// import { Placeholder } from "react-bootstrap";
+import { ProjectCard }         from "@/features/projects/components";
+import { ProjectCardSkeleton } from "@/features/projects/components/ProjectCardSkeleton";
+import { useGetProjects }      from "@/features/projects/hooks/useGetProjects";
 
 export const ProjectsPage = () => {
-
-  useEffect(() => {
-    getProjects();
-  }, []);
-
-  const [projects, setProjects] = useState([]);
-
-  const getProjects = async () => {
-    const responseProjects = await projectsService.getAll();
-    setProjects(responseProjects);
-  }
+  const { projects, loading } = useGetProjects();
 
   return (
-    <div className="row d-flex">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-      <div className="col-3 mr-1">
+      {/* SIDEBAR */}
+      <aside className="lg:col-span-2">
         {/* <ProjectsSearch /> */}
-      </div>
+      </aside>
 
-      <div className="col-9">
+      {/* MAIN */}
+      <section className="lg:col-span-10">
 
-        <h3 className="my-4 text-center">Projects</h3>
-        <div className="flex d-flex gap-3">
+        <h3 className="my-4 text-center text-xl font-heading">
+          Projects
+        </h3>
 
-          {/* { !projects.length && <ProjectCardSkeleton repeat={6}/>} */}
+        {/* GRID DE CARDS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
 
-          {
-            projects?.map(
-              (project: ProjectResponse) => <ProjectCard key={project.documentId} project={project}/>
-            )
-          }
+          {/* SKELETON */}
+          { loading && <ProjectCardSkeleton repeat={6} />}
+
+          {/* CARDS */}
+          {projects?.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+
         </div>
-      </div>
-      
+      </section>
+
     </div>
-  )
-}
-
-
-
-// const ProjectCardSkeleton = ( { repeat }: { repeat: number }) => {
-//   return (
-//     <>
-//       {Array.from({ length: repeat }).map((_, index) => (
-
-//         <Placeholder key={index} className="col-4 col-xl-3 project-card" animation="glow"> 
-//           <Placeholder xs={12} style={{ height: '450px' }} />
-//         </Placeholder>
-//       ))}
-//     </>
-//   )
-// }
+  );
+};

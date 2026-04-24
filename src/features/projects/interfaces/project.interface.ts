@@ -1,5 +1,5 @@
 export interface Project {
-  documentId      : string;
+  id              : string;
   slug            : string;
   name            : string;
   description     : string;

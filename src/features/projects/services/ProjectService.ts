@@ -8,9 +8,7 @@ const getAll = async (fieldFilters = {}) => {
     query Projects(
       $filters: ProjectFiltersInput
     ) {
-      projects(
-        filters: $filters
-      ) {
+      projects(filters: $filters) {
         documentId
         name
         slug
@@ -43,7 +41,8 @@ const getAll = async (fieldFilters = {}) => {
     const data = response.data.data.projects;
     if(!data) return null;
 
-    return data;
+    const mappedData = data.map((project: any) => ProjectMapper.fromResponseToProject(project));
+    return mappedData;
 
   }catch(error){
     console.log('error al cargar los proyectos', error);
@@ -62,7 +61,7 @@ const getBySlug = async (slug: string) => {
   
   const response = await getAll(filters);
   if(!response) return null;
-  const project = ProjectMapper.fromResponseToProject(response[0]);
+  const project = response[0];
   return project;
 }
 

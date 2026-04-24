@@ -1,4 +1,3 @@
-import type { ProjectResponse } from "@/features/projects/types/projectResponse";
 import { envs } from "@/config/envs";
 import { capitalizeFirst, truncateText } from "@/shared/utils";
 import { Tag } from "@/shared/components";
@@ -14,9 +13,10 @@ import {
 } from "@/shared/neo_brutalist/components/ui/card";
 
 import { Button } from "@/shared/neo_brutalist/components/ui/button";
+import type { Project } from "../interfaces/project.interface";
 
 type Props = {
-  project: ProjectResponse;
+  project: Project;
 };
 
 export const ProjectCard = ({ project }: Props) => {
@@ -28,7 +28,7 @@ export const ProjectCard = ({ project }: Props) => {
 
       <div className="border-b-2 border-border">
         <img
-          src={envs.strapi + cover?.url}
+          src={cover}
           alt={name}
           className="w-full h-48 object-contain"
         />
@@ -50,7 +50,7 @@ export const ProjectCard = ({ project }: Props) => {
       <CardContent>
         <div className="flex flex-wrap gap-2">
           {tags.map((t) => (
-            <Tag key={t.nombre} nameTech={t.nombre} />
+            <Tag key={t} nameTech={t} />
           ))}
         </div>
       </CardContent>
