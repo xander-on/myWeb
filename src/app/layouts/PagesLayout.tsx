@@ -1,4 +1,4 @@
-import { Header } from "@/shared/components";
+import { Footer, Header } from "@/shared/components";
 import { Outlet } from "react-router-dom";
 // import { Background } from "@/shared/components";
 
@@ -10,6 +10,7 @@ interface PagesLayoutProps {
 export const PagesLayout = ({ fluid=false }:PagesLayoutProps) => {
 
   const container = fluid ? 'container-fluid': 'container';
+  
   return (
     <>
       <Header />
@@ -21,7 +22,7 @@ export const PagesLayout = ({ fluid=false }:PagesLayoutProps) => {
         <Outlet />
       </div>
       {/* <Background/> */}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+
+.s-center{
+  text-align: center;
+}
+
+@media screen and (min-width:1024px){
+  .s-center{
+    text-align: left;
+  }
+}
+
+.flex{
+  display: flex;
+}
+
+
+.graphic{
+  position: relative;
+  display: grid;
+  padding-top: 3rem;
+  grid-template-columns: 1fr 75%;
+  overflow: hidden;
+}
+
+.graphic-man{
+  width: 100%;
+  grid-column-start: 2;
+}
+.absolute{
+  position: absolute
+}
+
+.graphic-go{
+  width: 27%;
+  mix-blend-mode:screen;
+  position: absolute;
+  top: 8%;
+  right: -4%;
+}
+
+@media screen and (min-width:1024px){
+  .graphic-go{
+    top:-6%
+  }
+}
+
+.graphic-circles{
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.graphic-circles img{
+  width: 100%;
+  height: 100%;
+  mix-blend-mode:screen;
+}
+
+.graphic-energy{
+  animation: turn1 10s linear infinite;
+}
+
+.graphic-circle-2{
+  animation: turn1 26s linear infinite;
+}
+
+.graphic-circle-1{
+  animation: turn2 16s linear infinite;
+}
+
+@keyframes turn1{
+  to{
+    transform: rotate(1turn)
+  }
+}
+
+@keyframes turn2{
+  to{
+    transform: rotate(-1turn)
+  }
+}
+
+
+.main-banner{
+  background: radial-gradient(199% 250% at 35% 50.07%, #145856 0, #111 10%, #145856 14%,  #0a2b29 16%, transparent 18%, transparent 99.58%);  
+
+  color: #fff;
+  padding: 2rem 1rem;
+}
+
+
+@media screen and (min-width: 1024px){
+
+  .main-banner{
+    background: radial-gradient(94% 260% at 65.5% 50.07%, #145856 0, #111 10%, #145856 14%,  #0a2b29 16%, transparent 18%, transparent 99.58%);
+  }
+  .grid-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1200px;
+    margin: auto;
+  }
+}
+
+.countdown-item:not(:last-of-type):before{
+  position: absolute;
+  right: 0;
+  content: "";
+  display: block;
+  width: 1px;
+  height: 50%;
+  background: #fff;
+  opacity: .5;
+}
