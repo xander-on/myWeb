@@ -1,5 +1,6 @@
 import axios     from "axios";
 import { envs } from "@/config/envs";
+import { ProjectMapper } from "../mappers/project.mapper";
 
 const getAll = async (fieldFilters = {}) => {
 
@@ -29,13 +30,11 @@ const getAll = async (fieldFilters = {}) => {
     }
   `;
 
-
   const variables = {
     filters: {
       ...fieldFilters
     }
   }
-
 
   try{
     const response = await axios.post(envs.strapiGraphql, { query, variables }); 
@@ -63,9 +62,9 @@ const getBySlug = async (slug: string) => {
   
   const response = await getAll(filters);
   if(!response) return null;
-  return response[0];
+  const project = ProjectMapper.fromResponseToProject(response[0]);
+  return project;
 }
-
 
 
 export const projectsService = {
