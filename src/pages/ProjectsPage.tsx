@@ -27,7 +27,7 @@ export const ProjectsPage = () => {
       <div className="col-9">
 
         <h3 className="my-4 text-center">Projects</h3>
-        <div className="row d-flex gap-3">
+        <div className="flex d-flex gap-3">
 
           {/* { !projects.length && <ProjectCardSkeleton repeat={6}/>} */}
 
