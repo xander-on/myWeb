@@ -1,4 +1,4 @@
-import { CvPage, HomePage } from "@/pages";
+import { CvPage, HomePage, ProjectsPage } from "@/pages";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { PagesLayout } from "../layouts";
 
@@ -11,6 +11,10 @@ const routes = [
       {
         path: "/",
         element: <HomePage />,
+      },
+      {
+        path: "projects",
+        element: <ProjectsPage />,
       },
       {
         path: "cv",
