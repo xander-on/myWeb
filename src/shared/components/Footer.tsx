@@ -4,7 +4,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 export const Footer = () => {
   return (
-    <footer className="w-full bg-black/20 text-white px-6 py-6 border-t-2 border-border shadow-shadow">
+    <footer className="w-full bg-black/30 text-white px-6 py-6 border-t-2 border-border shadow-shadow">
 
       <div className="max-w-7xl mx-auto">
         

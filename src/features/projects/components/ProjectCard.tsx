@@ -24,7 +24,7 @@ export const ProjectCard = ({ project }: Props) => {
   const { slug, name, description, cover, appType, tags } = project;
 
   return (
-    <Card className="w-full max-w-sm flex flex-col justify-between pt-0">
+    <Card className="w-full max-w-sm flex flex-col justify-between pt-0 bg-transparent ">
 
       <div className="border-b-2 border-border">
         <img
@@ -35,23 +35,28 @@ export const ProjectCard = ({ project }: Props) => {
       </div>
 
       <CardHeader>
-        <CardTitle className="flex flex-wrap items-center gap-2">
-          {name}
-          <span className="text-sm text-muted-foreground">
-            / {capitalizeFirst(appType)}
-          </span>
-        </CardTitle>
-
-        <CardDescription>
-          {truncateText(description, 100)}
-        </CardDescription>
-      </CardHeader>
-
-      <CardContent>
-        <div className="flex flex-wrap gap-2">
+        
+        <div className="flex flex-wrap gap-2 justify-end">
           {tags.map((t) => (
             <Tag key={t} nameTech={t} />
           ))}
+        </div>
+
+        <CardTitle className="flex flex-wrap items-center gap-2">
+          
+        </CardTitle>
+      </CardHeader>
+
+      <CardContent>
+        <h2 className=" font-bold">
+          {name}
+          <span className="text-muted-foreground">
+            / {capitalizeFirst(appType)}
+          </span>
+        </h2>
+
+        <div>
+          {truncateText(description, 100)}
         </div>
       </CardContent>
 
