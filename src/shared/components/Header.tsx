@@ -17,6 +17,11 @@ const links = [
     emoji: "🚀",
   },
   {
+    title:"Certificates",
+    href: "/certificates",
+    emoji: "🏆",
+  },
+  {
     title:"Contact",
     href: "/contact",
     emoji: "📨",

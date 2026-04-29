@@ -15,7 +15,7 @@ export const useGetProjects = () => {
     const getProjects = async () => {
       setLoading(true);
       const responseProjects = await projectsService.getAll();
-      setProjects(responseProjects);
+      setProjects(responseProjects || []);
       setLoading(false);
     }
 

@@ -1,6 +1,14 @@
 import axios     from "axios";
 import { envs } from "@/config/envs";
 import { ProjectMapper } from "../mappers/project.mapper";
+import type { ProjectResponse } from "../interfaces/project.response";
+
+
+type GraphQLResponse = {
+  data: {
+    projects: ProjectResponse[];
+  };
+};
 
 const getAll = async (fieldFilters = {}) => {
 
@@ -35,14 +43,14 @@ const getAll = async (fieldFilters = {}) => {
   }
 
   try{
-    const response = await axios.post(envs.strapiGraphql, { query, variables }); 
+    const response = await axios.post<GraphQLResponse>(envs.strapiGraphql, { query, variables }); 
     if(response.status !== 200) return null;
 
-    const data = response.data.data.projects;
-    if(!data) return null;
+    const projects = response.data.data.projects;
+    if(!projects) return null;
 
-    const mappedData = data.map((project: any) => ProjectMapper.fromResponseToProject(project));
-    return mappedData;
+    const projectsMapped = projects.map(project => ProjectMapper.fromResponseToProject(project));
+    return projectsMapped;
 
   }catch(error){
     console.log('error al cargar los proyectos', error);
@@ -61,8 +69,8 @@ const getBySlug = async (slug: string) => {
   
   const response = await getAll(filters);
   if(!response) return null;
-  const project = response[0];
-  return project;
+
+  return response[0];
 }
 
 

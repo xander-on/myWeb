@@ -17,7 +17,6 @@ export const useProjectDetails = () => {
     if (!slug) return;
     setLoading(true);
     const response = await projectsService.getBySlug(slug);
-    console.log('hooks', response);
     if (response) setProject(response);
     setLoading(false);
   };

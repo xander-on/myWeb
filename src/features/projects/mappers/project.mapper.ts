@@ -7,7 +7,6 @@ import type { Project } from "../interfaces/project.interface";
 export class ProjectMapper{
 
   static fromResponseToProject(project:ProjectResponse):Project{
-    console.log("maper", project);
     return {
       ...project,
       id      : project.documentId,
