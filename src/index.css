@@ -3,6 +3,20 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: 'LucidaCustom';
+  src: url('/src/assets/fonts/Lucida.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JetbrainsMono';
+  src: url('/src/assets/fonts/JetBrainsMono.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --background: oklch(96.47% 0.0401 157.79);
   --secondary-background: oklch(100% 0 0);
@@ -71,6 +85,8 @@
 
   /* custom */
   --color-bg-body: var(--background-body);
+  --font-base: 'JetbrainsMono', sans-serif;
+  --font-heading: 'JetbrainsMono', sans-serif;
 }
   
 @layer base {
@@ -82,5 +98,6 @@
 
   h1, h2, h3, h4, h5, h6{
     @apply font-heading;
+
   }
 }

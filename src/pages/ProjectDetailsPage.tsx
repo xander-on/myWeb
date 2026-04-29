@@ -38,7 +38,7 @@ export const ProjectDetailsPage = () => {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
         <div className="flex justify-center">
-          <div className="w-100 max-h-75 flex items-center justify-center p-2 bg-background">
+          <div className="w-100 max-h-75 flex items-center justify-center p-2">
             <img
               src={cover}
               alt={name}

@@ -55,7 +55,7 @@ export const ProjectCard = ({ project }: Props) => {
           </span>
         </h2>
 
-        <div>
+        <div className="text-sm">
           {truncateText(description, 100)}
         </div>
       </CardContent>
