@@ -1,5 +1,5 @@
 import { GeneralLoader }     from "@/shared/components";
-import { capitalizeFirst }   from "@/shared/utils";
+import { capitalizeFirst, openLink }   from "@/shared/utils";
 import { faGithub }          from "@fortawesome/free-brands-svg-icons";
 import { faEye }             from "@fortawesome/free-solid-svg-icons";
 import { Gallery, Tag }      from "@/shared/components";
@@ -28,10 +28,7 @@ export const ProjectDetailsPage = () => {
     urlPreview,
   } = project;
 
-  const openExternal = (url?: string) => {
-    if (!url) return;
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
+  
 
   return (
     <main className="py-10">
@@ -66,7 +63,7 @@ export const ProjectDetailsPage = () => {
           </div>
 
           <div className="flex flex-col gap-3 mt-4">
-            <Button onClick={ () => openExternal(urlPreview) }>
+            <Button onClick={ () => openLink(urlPreview) }>
               <FontAwesomeIcon icon={faEye} />
               View project
             </Button>
@@ -74,7 +71,7 @@ export const ProjectDetailsPage = () => {
             {urlRepositorio && (
               <Button
                 variant="neutral"
-                onClick={ () => openExternal(urlRepositorio) }
+                onClick={ () => openLink(urlRepositorio) }
               >
                 <FontAwesomeIcon icon={faGithub} />
                 <span>View Repository</span>

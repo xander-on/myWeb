@@ -7,3 +7,4 @@ export * from "./GeneralLoader";
 export * from "./Gallery";
 export * from "./Background";
 export * from "./ModalContainer";
+export * from "./AccordeonItem";
