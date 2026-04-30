@@ -1,4 +1,4 @@
-import { CertificatesPage, CvPage, HomePage, ProjectDetailsPage, ProjectsPage } from "@/pages";
+import { CertificatesPage, CvPage, HomePage, NotFoundPage, ProjectDetailsPage, ProjectsPage, UnderConstructionPage } from "@/pages";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { PagesLayout } from "../layouts";
 
@@ -25,9 +25,17 @@ const routes = [
         element: <CertificatesPage />,
       },
       {
+        path: "contact",
+        element: <UnderConstructionPage />,
+      },
+      {
         path: "cv",
         element: <CvPage />,
       },
+      {
+        path: "*",
+        element: <NotFoundPage />,
+      }
     ]
   },
 ];
