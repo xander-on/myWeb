@@ -1,11 +1,11 @@
 import { CertificateCard, CertificateViewer } from "@/features/certificates/components";
-import { useGetCertificados } from "@/features/certificates/hooks/useGetCertificados";
+import { useGetCertificates } from "@/features/certificates/hooks/useGetCertificates";
 
 
 
 export const CertificatesPage = () => {
 
-  const { certificates } = useGetCertificados();
+  const { certificates } = useGetCertificates();
 
   return (
     <div>

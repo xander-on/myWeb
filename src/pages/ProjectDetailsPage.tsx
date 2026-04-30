@@ -1,17 +1,19 @@
 import { GeneralLoader }     from "@/shared/components";
 import { capitalizeFirst }   from "@/shared/utils";
 import { faGithub }          from "@fortawesome/free-brands-svg-icons";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye }             from "@fortawesome/free-solid-svg-icons";
 import { Gallery, Tag }      from "@/shared/components";
 import { FontAwesomeIcon }   from "@fortawesome/react-fontawesome";
 import ReactMarkdown         from "react-markdown";
-import { useProjectDetails } from "@/features/projects/hooks/useProjectDetails";
-import { Button } from "@/shared/neo_brutalist/components/ui/button";
+import { useGetProject }     from "@/features/projects/hooks/useGetProject";
+import { Button }            from "@/shared/neo_brutalist/components/ui/button";
+import { useParams }         from "react-router-dom";
 
 export const ProjectDetailsPage = () => {
 
-  const { project } = useProjectDetails();
-  console.log(project);
+  const { slug } = useParams();
+  if (!slug) return null;
+  const { project } = useGetProject(slug);
 
   if (!project) return <GeneralLoader />;
 

@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react'
 import { certificatesService } from '../services/certificatesService';
-import type { Certificate } from '../interfaces/certificate.interface';
+import type { Certificate }    from '../interfaces/certificate.interface';
 
-export const useGetCertificados = () => {
+export const useGetCertificates = () => {
 
   const [certificates, setCertificates] = useState<Certificate[]>([]);
   const [loading, setLoading] = useState(true);

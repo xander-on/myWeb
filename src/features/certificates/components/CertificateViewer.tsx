@@ -1,32 +1,18 @@
-import ReactMarkdown           from 'react-markdown';
-import { Tag }      from "@/shared/components"
-import { useEffect, useState } from "react";
-import { useSearchParams }     from "react-router-dom";
-import Lightbox from 'yet-another-react-lightbox';
-import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import { useState }  from "react";
+import { useSearchParams }      from "react-router-dom";
+import ReactMarkdown            from 'react-markdown';
+import Zoom                     from "yet-another-react-lightbox/plugins/zoom";
+import { ModalContainer, Tag }  from "@/shared/components"
+import Lightbox                 from 'yet-another-react-lightbox';
+import { useGetCertificate }    from "../hooks/useGetCertificate";
 import "yet-another-react-lightbox/styles.css";
-import { ModalContainer } from '@/shared/components/ModalContainer';
-import { certificatesService } from '../services/certificatesService';
-import type { Certificate } from '../interfaces/certificate.interface';
 
 export const CertificateViewer = () => {
 
-  const [searchParams]                = useSearchParams();
-  const [certificate, setCertificate] = useState<Certificate | null>(null);
-  const [open, setOpen]               = useState(false);
-
-  const getCertificado = async () => {
-    const slug = searchParams?.get('view');
-    if (!slug) return;
-
-    const responseCertificado = await certificatesService.getBySlug(slug);
-    if (!responseCertificado) return;
-    setCertificate(responseCertificado);
-  }
-
-  useEffect(() => {
-    getCertificado();
-  }, [searchParams]);
+  const [searchParams]  = useSearchParams();
+  const [open, setOpen] = useState(false);
+  const slug            = searchParams.get("view");
+  const { certificate } = useGetCertificate(slug);
 
   if (!certificate) return null;
 

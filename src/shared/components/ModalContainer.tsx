@@ -1,5 +1,5 @@
 
-import { Dialog, DialogContent } from '../neo_brutalist/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '../neo_brutalist/components/ui/dialog';
 import { useModalContainer } from '../hooks/useModalContainer';
 
 interface Props {
@@ -17,13 +17,14 @@ export const ModalContainer = ({ queryParam, size="lg", children}:Props) => {
       open={isVisible} 
       onOpenChange={onCloseModal}
     >
-
+      <DialogTitle></DialogTitle>
       <DialogContent
         className={`
           ${size === "sm" && "sm:max-w-75"}
           ${size === "lg" && "sm:max-w-180"}
           ${size === "xl" && "sm:max-w-280"}
         `}
+        aria-describedby=''
       >
         { children }
       </DialogContent>

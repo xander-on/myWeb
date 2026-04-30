@@ -1,19 +1,17 @@
 import { useEffect, useState }  from "react";
-import { useParams }            from "react-router-dom";
 import { projectsService }      from "@/features/projects/services/ProjectService";
 import type { Project } from "../interfaces/project.interface";
 
-export const useProjectDetails = () => {
-  const { slug } = useParams();
+export const useGetProject = (slug: string) => {
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchProjectDetails();
+    getProject();
   }, [slug]);
 
 
-  const fetchProjectDetails = async () => {
+  const getProject = async () => {
     if (!slug) return;
     setLoading(true);
     const response = await projectsService.getBySlug(slug);
