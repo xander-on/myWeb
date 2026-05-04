@@ -1,4 +1,3 @@
-import { envs } from "@/config/envs";
 import { capitalizeFirst, truncateText } from "@/shared/utils";
 import { Tag } from "@/shared/components";
 import { Link } from "react-router-dom";
@@ -9,7 +8,6 @@ import {
   CardFooter, 
   CardHeader, 
   CardTitle, 
-  CardDescription 
 } from "@/shared/neo_brutalist/components/ui/card";
 
 import { Button } from "@/shared/neo_brutalist/components/ui/button";

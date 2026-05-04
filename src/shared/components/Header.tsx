@@ -3,7 +3,6 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  navigationMenuTriggerStyle,
 } from "@/shared/neo_brutalist/components/ui/navigation-menu";
 import { Link }      from "react-router-dom";
 import { useTheme }  from "../hooks/useTheme";
