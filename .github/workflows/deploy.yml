@@ -19,7 +19,7 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: |
-          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+          echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u xander99 --password-stdin
           docker push xander99/alexanderweb-front:latest
 
       - name: Deploy to VPS via SSH
@@ -27,7 +27,7 @@ jobs:
         with:
           host: ${{ secrets.VPS_IP }}
           username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
+          key: ${{ secrets.LOCAL_SSH_KEY }}
           script: |
             docker pull xander99/alexanderweb-front:latest
             docker stop frontend || true  # Detener el contenedor anterior (si existe)
