@@ -1,63 +1,30 @@
-
-
-
-
-import { CVHabilities, CvPersonalInfo } from '@/features/cv/components';
-import { AccordeonItem } from '@/shared/components';
-// import './CvPage.css';
-
+import { CvEducation, CvExperience, CvFormation, CVHabilities, CvPersonalInfo, CvProjects } from '@/features/cv/components';
 
 export const CvPage = () => {
 
   return (
     <main>
       <CvPersonalInfo/>
-      <hr />
 
       <CVHabilities/> 
       <br />
 
-      <EducacionCV />
+      <CvEducation />
       <br />
 
-      {/* <FormacionCv />
+      <CvFormation />
       <br />
 
-      <ExperienciaCv />
+      <CvExperience />
       <br />
 
-      <ProjectsCv /> */}
+      <CvProjects />
     </main>
   );
 }
 
 
 
-export const EducacionCV = () => 
-
-  <AccordeonItem id={'educacion'} title={`👨‍🎓 EDUCACIÓN`}>
-    <ul className='text-lg'>
-      <li>
-        <h6>Bachiller Técnico en Sistemas Informáticos</h6>
-        <small>Academia Naval Almirante Illingworth</small>
-      </li>
-
-      <br />
-
-      <li>
-        <h6>Carrera de Ingeniería en Sistemas Computacionales</h6>
-        <small>Universidad de Guayaquil</small>
-      </li>
-      
-      <br />
-
-      <li>
-        <h6>Carrera de Desarrollo Web</h6>
-        <small>Formación en línea</small>
-      </li>
-
-    </ul>
-  </AccordeonItem>
 
 
 

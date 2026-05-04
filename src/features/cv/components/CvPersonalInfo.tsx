@@ -1,7 +1,6 @@
 
 
 
-import { Link } from 'react-router-dom';
 import { CvLogosTech } from './CvLogosTech';
 import { Button } from '@/shared/neo_brutalist/components/ui/button';
 import { openLink } from '@/shared/utils';

@@ -5,8 +5,6 @@ import java     from '@/assets/images/bannerTech/icon-java.svg';
 import cSharp   from '@/assets/images/bannerTech/icon-cSharp.svg';
 import python   from '@/assets/images/bannerTech/icon-python.svg';
 import ai       from '@/assets/images/bannerTech/icon-ai.svg';
-import type { CSSProperties } from 'react';
-
 
 //todo agregar nestjs
 const logosTech = [
@@ -17,29 +15,7 @@ const logosTech = [
   java,
   ai
 ];
-
-
-// .logos-tech{
-//   display: flex;
-//   justify-content: end;
-//   flex-wrap: nowrap;
-
-//   img{
-//     height: 100px;
-//     filter: brightness(0) saturate(1.2) invert(63%) sepia(96%) saturate(5000%) hue-rotate(90deg);
-//   }
-
-
-//   @media (max-width: 768px) {
-//     justify-content: center;
-//     img{
-//       height: 60px;
-//       margin: 0 5px;
-//     }
-//   }
-// }
-
-
+// [filter:brightness(0)_saturate(1.2)_invert(63%)_sepia(96%)_saturate(5000%)_hue-rotate(90deg)]
 
 export const CvLogosTech = () => {
   return (
@@ -50,9 +26,9 @@ export const CvLogosTech = () => {
             src={logo}
             alt="logo"
             className="
-              h-[60px] md:h-[100px]
-              mx-[5px] md:mx-0
-              [filter:brightness(0)_saturate(1.2)_invert(63%)_sepia(96%)_saturate(5000%)_hue-rotate(90deg)]
+              h-15 md:h-25
+              mx-1.25 md:mx-0
+              filter-[brightness(0)_saturate(1.2)_invert(63%)_sepia(96%)_saturate(5000%)_hue-rotate(90deg)]
             "
           />
         </div>
