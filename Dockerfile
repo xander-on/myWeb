@@ -10,6 +10,12 @@ COPY package*.json ./
 # Paso 4: Instala las dependencias
 RUN npm install
 
+ARG VITE_STRAPI_URL
+ARG VITE_STRAPI_GRAPHQL
+
+ENV VITE_STRAPI_URL=$VITE_STRAPI_URL
+ENV VITE_STRAPI_GRAPHQL=$VITE_STRAPI_GRAPHQL
+
 # Paso 5: Copia el resto del código fuente
 COPY . .
 
