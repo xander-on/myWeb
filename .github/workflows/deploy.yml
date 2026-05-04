@@ -1,0 +1,35 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - deploy  # O cualquier rama que uses
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: |
+          docker build -t xander99/alexanderweb-front:latest .
+
+      - name: Push Docker image to Docker Hub
+        run: |
+          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+          docker push xander99/alexanderweb-front:latest
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            docker pull xander99/alexanderweb-front:latest
+            docker stop frontend || true  # Detener el contenedor anterior (si existe)
+            docker rm frontend || true    # Eliminar el contenedor anterior (si existe)
+            docker run -d --name frontend -p 3000:80 xander99/alexanderweb-front:latest
