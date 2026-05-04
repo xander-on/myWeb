@@ -15,7 +15,6 @@ const logosTech = [
   java,
   ai
 ];
-// [filter:brightness(0)_saturate(1.2)_invert(63%)_sepia(96%)_saturate(5000%)_hue-rotate(90deg)]
 
 export const CvLogosTech = () => {
   return (
@@ -24,11 +23,10 @@ export const CvLogosTech = () => {
         <div key={logo}>
           <img
             src={logo}
-            alt="logo"
             className="
-              h-15 md:h-25
-              mx-1.25 md:mx-0
-              filter-[brightness(0)_saturate(1.2)_invert(63%)_sepia(96%)_saturate(5000%)_hue-rotate(90deg)]
+              h-15 md:h-25 mx-1.5
+              filter-[invert(64%)_sepia(89%)_saturate(430%)_hue-rotate(100deg)_brightness(95%)_contrast(90%)]
+              hover:filter-none hover:scale-110
             "
           />
         </div>

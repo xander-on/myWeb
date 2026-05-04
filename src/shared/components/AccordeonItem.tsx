@@ -11,7 +11,7 @@ export const AccordeonItem = ({ id='id-acordeon', title, children }: Props) => {
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem value={id}>
         <AccordionTrigger className="cursor-pointer data-[state=open]:bg-transparent dark:data-[state=open]:text-main">
-          <h3 className="text-xl">{ title }</h3>
+          <h3 className="text-lg">{ title }</h3>
         </AccordionTrigger>
 
         <AccordionContent 

@@ -40,11 +40,13 @@ export const Header = () => {
   const { isDark, toggleTheme } = useTheme();
 
   return (
-    <NavigationMenu className="max-w-none flex justify-between px-8">
+    <NavigationMenu className="max-w-none flex justify-between px-8 bg-[#1f1f1f] text-main">
         
         {/* LEFT */}
-        <Link to="/" className={navigationMenuTriggerStyle()}>
-          <span className="text-2xl">AlexanderWeb</span>
+        <Link to="/">
+          <h1 className="text-2xl text-white font-bold">Alexander
+            <span className="text-main">Web</span>
+          </h1>
         </Link>
 
         {/* RIGHT */}
@@ -52,11 +54,10 @@ export const Header = () => {
             <NavigationMenuList className="">
 
               {links.map((link) => (
-                <NavigationMenuItem key={link.href}>
+                <NavigationMenuItem key={link.href} className="px-3 text-white">
                   <NavigationMenuLink asChild>
                     <Link
                       to={link.href}
-                      className={navigationMenuTriggerStyle()}
                     >
                       {link.emoji} {link.title}
                     </Link>

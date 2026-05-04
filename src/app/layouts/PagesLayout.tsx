@@ -16,12 +16,12 @@ export const PagesLayout = ({ fluid=false }:PagesLayoutProps) => {
       <Header />
         
       <div 
-        className={`${container} min-height-800 py-5 mx-auto`}
+        className={`${container} min-height-800 p-4 mx-auto`}
         style={{ position: 'sticky', zIndex: 10, minHeight: 'calc(100vh - 169px)' }}
       >
         <Outlet />
       </div>
-      {/* <Background/> */}
+      
       <Footer />
     </>
   );

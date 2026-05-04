@@ -1,36 +1,64 @@
 export const projects = {
 
   profesionales : [
-    { name: "Portal Web AQUA",           link: "https://aqua.com.ec/"  },
-    { name: "Portal Web Dermashop",      link: "https://dermashop.ec/" },
-    { name: "Portal Web EdiBosco",       link: "https://edibosco.com/" },
-    { name: "Portal Web Klug Marketing", link: "https://klugmarketing.com/" }
+    { 
+      name: "Medinet App Web", 
+      description: [ 
+        "Desarrollo web Frontend Vue Js", 
+        "Backend con Python Django", 
+        "Base de datos con Postgres SQL" 
+      ],         
+      link: null 
+    },
+
+    { 
+      name: "Ultralab Web", 
+      description: [ 
+        "Desarrollo web Frontend React Js", 
+        "Backend con Java Springboot", 
+        "Base de datos con Postgres SQL" 
+      ],         
+      link: null 
+    },
+
+    { 
+      name: "Portal Web AQUA",
+      description: [
+        "Participación en el diseño del prototipo",
+        "Maquetación web, web responsive, funcionalidades",
+      ],          
+      link: "https://aqua.com.ec/"  
+    },
+
+    { 
+      name: "Portal Web Dermashop",
+      description: [
+        "Participación en el diseño del prototipo",
+        "Maquetación web, web responsive, funcionalidades",
+      ],     
+      link: "https://dermashop.ec/" 
+    },
+
+    { 
+      name: "Portal Web EdiBosco",
+      description: [
+        "Participación en el diseño del prototipo",
+        "Maquetación web, web responsive, funcionalidades",
+      ],      
+      link: "https://edibosco.com/" 
+    },
+
+    { 
+      name: "Portal Web Klug Marketing",
+      description: [
+        "Participación en el diseño del prototipo",
+        "Maquetación web, web responsive, funcionalidades",
+      ],
+      link: "https://klugmarketing.com/" 
+    }
   ],
     
-  personales: [
-    // { 
-    //   name: "Api Heroes",    
-    //   type: "API REST Node", 
-    //   link: "/projects/api-heroes"
-    // },
+  // personales: [
     
-    // { 
-    //   name: "SuperHeros Angular",    
-    //   type: "App Web Angular", 
-    //   link: "/projects/superheroes-angular" 
-    // },
-    
-    // { 
-    //   name: "Scanner QR",    
-    //   type: "App Mobile Flutter", 
-    //   link: "/projects/scanner-qr" 
-    // },
-
-    // { 
-    //   name: "Shopi",         
-    //   type: "App Web React", 
-    //   link: "/projects/shopi" 
-    // },
-    
-  ]
+  // ]
 }
