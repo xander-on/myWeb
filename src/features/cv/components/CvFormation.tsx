@@ -9,7 +9,7 @@ export const CvFormation = () =>
         formation.map( (item, index) =>(
           <div key={index} className="my-4">
             <h4 className="mb-4 text-lg font-bold">{ item.category }</h4>
-            <div className="mx-1 grid grid-cols-3">
+            <div className="mx-1 grid md:grid-cols-3">
               {
                 item.values.map( (item, index) => 
                   <div key={index}>

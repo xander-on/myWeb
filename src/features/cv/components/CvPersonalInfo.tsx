@@ -38,7 +38,7 @@ export const personalInfo = {
 
 export const CvPersonalInfo = () => {
   return (
-    <div className="flex mx-5 mb-4">
+    <div className="flex flex-col md:flex-row mx-5 mb-4">
                   
       <div className="md:w-1/2">
         <img 
