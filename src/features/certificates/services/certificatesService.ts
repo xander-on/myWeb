@@ -14,10 +14,12 @@ const getAll = async (fieldFilters = {}) => {
 
   const query = `
     query Certificates(
-      $filters: CertificadoFiltersInput
+      $filters: CertificadoFiltersInput,
+      $pagination: PaginationArg
     ) {
       certificados(
         filters: $filters
+        pagination: $pagination
       ) {
         documentId
         slug
@@ -34,6 +36,9 @@ const getAll = async (fieldFilters = {}) => {
   const variables = {
     filters: {
       ...fieldFilters
+    },
+    pagination: {
+      limit:50
     }
   };
 
