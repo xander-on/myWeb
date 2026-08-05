@@ -1,5 +1,5 @@
 import { getCertificatesAction } from "./getCertificates.action";
-import type { Certificate } from "../../domain/entities/certificate.entity";
+import type { Certificate } from "@/modules/certificates/domain/entities/certificate.entity";
 
 export const getCertificateBySlugAction = async (slug: string): Promise<Certificate | null> => {
 

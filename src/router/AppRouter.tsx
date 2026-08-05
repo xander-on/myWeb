@@ -1,10 +1,12 @@
 import { HomePage } from "@/modules/web/presentation/pages/HomePage";
-import { ProjectsPage, ProjectDetailsPage } from "@/modules/projects/presentation/pages";
+import { ProjectsPage } from "@/modules/projects/presentation/pages/ProjectsPage";
+import { ProjectDetailsPage } from "@/modules/projects/presentation/pages/ProjectDetailsPage";
 import { CertificatesPage } from "@/modules/certificates/presentation/pages/CertificatesPage";
 import { CvPage } from "@/modules/cv/presentation/pages/CvPage";
-import { NotFoundPage, UnderConstructionPage } from "@/modules/shared/presentation/pages";
+import { NotFoundPage } from "@/modules/shared/presentation/pages/NotFoundPage";
+import { UnderConstructionPage } from "@/modules/shared/presentation/pages/UnderConstructionPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { PagesLayout } from "@/modules/shared/presentation/layouts";
+import { PagesLayout } from "@/modules/shared/presentation/layouts/PagesLayout";
 
 
 

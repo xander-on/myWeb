@@ -1,7 +1,7 @@
 import { strapiApi } from "@/modules/shared/infrastructure/api/strapiApi";
-import { CertificateMapper } from "../../infrastructure/mappers/certificate.mapper";
-import type { Certificate } from "../../domain/entities/certificate.entity";
-import type { CertificateResponse } from "../../infrastructure/interfaces/certificate.response";
+import { CertificateMapper } from "@/modules/certificates/infrastructure/mappers/certificate.mapper";
+import type { Certificate } from "@/modules/certificates/domain/entities/certificate.entity";
+import type { CertificateResponse } from "@/modules/certificates/infrastructure/interfaces/certificate.response";
 
 type GraphQLResponse = {
   data: {

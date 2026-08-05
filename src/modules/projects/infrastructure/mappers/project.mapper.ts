@@ -1,6 +1,6 @@
 import { envs } from "@/config/envs";
-import type { ProjectResponse } from "../interfaces/project.response";
-import type { Project } from "../../domain/entities/project.entity";
+import type { ProjectResponse } from "@/modules/projects/infrastructure/interfaces/project.response";
+import type { Project } from "@/modules/projects/domain/entities/project.entity";
 
 
 

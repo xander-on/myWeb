@@ -3,7 +3,7 @@
 
 import { CvLogosTech } from './CvLogosTech';
 import { Button } from '@/modules/shared/presentation/neo_brutalist/components/ui/button';
-import { openLink } from '@/modules/shared/presentation/utils';
+import { openLink } from '@/modules/shared/presentation/utils/openLink';
 import { personalInfo } from '@/modules/cv/domain/data/personalInfo';
 
 

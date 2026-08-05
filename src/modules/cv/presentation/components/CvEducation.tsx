@@ -1,4 +1,4 @@
-import { AccordeonItem } from "@/modules/shared/presentation/components";
+import { AccordeonItem } from "@/modules/shared/presentation/components/AccordeonItem";
 
 
 export const CvEducation = () => 

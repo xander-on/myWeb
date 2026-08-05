@@ -5,9 +5,9 @@ import {
   NavigationMenuList,
 } from "@/modules/shared/presentation/neo_brutalist/components/ui/navigation-menu";
 import { Link }      from "react-router-dom";
-import { useTheme }  from "../hooks/useTheme";
+import { useTheme }  from "@/modules/shared/presentation/hooks/useTheme";
 import { Sun, Moon, Menu, X } from "lucide-react";
-import { Button }    from "../neo_brutalist/components/ui/button";
+import { Button }    from "@/modules/shared/presentation/neo_brutalist/components/ui/button";
 import { useState } from "react";
 
 const links = [

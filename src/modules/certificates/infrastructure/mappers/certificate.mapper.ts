@@ -1,6 +1,6 @@
 import { envs } from "@/config/envs";
-import type { Certificate } from "../../domain/entities/certificate.entity";
-import type { CertificateResponse } from "../interfaces/certificate.response";
+import type { Certificate } from "@/modules/certificates/domain/entities/certificate.entity";
+import type { CertificateResponse } from "@/modules/certificates/infrastructure/interfaces/certificate.response";
 
 
 export class CertificateMapper {

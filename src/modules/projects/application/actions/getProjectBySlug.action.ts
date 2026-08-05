@@ -1,5 +1,5 @@
 import { getProjectsAction } from "./getProjects.action";
-import type { Project } from "../../domain/entities/project.entity";
+import type { Project } from "@/modules/projects/domain/entities/project.entity";
 
 export const getProjectBySlugAction = async (slug: string): Promise<Project | null> => {
   const filters = {

@@ -1,6 +1,6 @@
 
-import { Dialog, DialogContent, DialogTitle } from '../neo_brutalist/components/ui/dialog';
-import { useModalContainer } from '../hooks/useModalContainer';
+import { Dialog, DialogContent, DialogTitle } from "@/modules/shared/presentation/neo_brutalist/components/ui/dialog";
+import { useModalContainer } from "@/modules/shared/presentation/hooks/useModalContainer";
 
 interface Props {
   queryParam  : string;

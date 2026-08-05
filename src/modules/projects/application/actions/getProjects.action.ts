@@ -1,7 +1,7 @@
 import { strapiApi } from "@/modules/shared/infrastructure/api/strapiApi";
-import { ProjectMapper } from "../../infrastructure/mappers/project.mapper";
-import type { Project } from "../../domain/entities/project.entity";
-import type { ProjectResponse } from "../../infrastructure/interfaces/project.response";
+import { ProjectMapper } from "@/modules/projects/infrastructure/mappers/project.mapper";
+import type { Project } from "@/modules/projects/domain/entities/project.entity";
+import type { ProjectResponse } from "@/modules/projects/infrastructure/interfaces/project.response";
 
 type GraphQLResponse = {
   data: {

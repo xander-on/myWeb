@@ -1,6 +1,6 @@
-import { Footer, Header } from "@/modules/shared/presentation/components";
+import { Footer } from "@/modules/shared/presentation/components/Footer";
+import { Header } from "@/modules/shared/presentation/components/Header";
 import { Outlet } from "react-router-dom";
-// import { Background } from "@/modules/shared/presentation/components";
 
 interface PagesLayoutProps {
   // children: ReactNode;

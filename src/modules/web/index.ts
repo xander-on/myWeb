@@ -1,4 +1,2 @@
-export * from "./domain";
-export * from "./application";
-export * from "./infrastructure";
-export * from "./presentation";
+export * from "./presentation/components/BannerAnimated/BannerAnimated";
+export * from "./presentation/pages/HomePage";

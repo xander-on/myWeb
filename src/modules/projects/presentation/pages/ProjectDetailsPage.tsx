@@ -1,8 +1,10 @@
-import { GeneralLoader }     from "@/modules/shared/presentation/components";
-import { capitalizeFirst, openLink }   from "@/modules/shared/presentation/utils";
+import { GeneralLoader }     from "@/modules/shared/presentation/components/GeneralLoader";
+import { capitalizeFirst }   from "@/modules/shared/presentation/utils/setText";
+import { openLink }          from "@/modules/shared/presentation/utils/openLink";
 import { faGithub }          from "@fortawesome/free-brands-svg-icons";
 import { faEye }             from "@fortawesome/free-solid-svg-icons";
-import { Gallery, Tag }      from "@/modules/shared/presentation/components";
+import { Gallery }           from "@/modules/shared/presentation/components/Gallery";
+import { Tag }               from "@/modules/shared/presentation/components/Tag";
 import { FontAwesomeIcon }   from "@fortawesome/react-fontawesome";
 import ReactMarkdown         from "react-markdown";
 import { useGetProject }     from "@/modules/projects/presentation/hooks/useGetProject";

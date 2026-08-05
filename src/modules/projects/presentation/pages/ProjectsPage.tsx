@@ -1,4 +1,4 @@
-import { ProjectCard }         from "@/modules/projects/presentation/components";
+import { ProjectCard }         from "@/modules/projects/presentation/components/ProjectCard";
 import { ProjectCardSkeleton } from "@/modules/projects/presentation/components/ProjectCardSkeleton";
 import { useGetProjects }      from "@/modules/projects/presentation/hooks/useGetProjects";
 
