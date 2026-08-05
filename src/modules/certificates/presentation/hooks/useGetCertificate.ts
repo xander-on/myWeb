@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 import { getCertificateBySlugAction } from "@/modules/certificates/application/actions/getCertificateBySlug.action";
 import type { Certificate } from "@/modules/certificates/domain/entities/certificate.entity";
 
-
 export const useGetCertificate = (slug: string | null) => {
-
   const [certificate, setCertificate] = useState<Certificate | null>(null);
-  const [loading, setLoading]         = useState(true);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {    
+  useEffect(() => {
     getCertificado();
   }, [slug]);
 
@@ -20,11 +18,10 @@ export const useGetCertificate = (slug: string | null) => {
     if (responseCertificado) setCertificate(responseCertificado);
 
     setLoading(false);
-  }
+  };
 
   return {
     certificate,
-    loading
-  }
-}
-
+    loading,
+  };
+};

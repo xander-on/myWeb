@@ -14,10 +14,10 @@ import { useParams }         from "react-router-dom";
 export const ProjectDetailsPage = () => {
 
   const { slug } = useParams();
-  if (!slug) return null;
-  const { project } = useGetProject(slug);
+  const { project, loading } = useGetProject(slug ?? "");
 
-  if (!project) return <GeneralLoader />;
+  if (!slug || loading) return <GeneralLoader />;
+  if (!project) return null;
 
   const {
     name,

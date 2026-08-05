@@ -1,4 +1,4 @@
-import { useEffect, useState }  from "react";
+import { useEffect, useState } from "react";
 import { getProjectBySlugAction } from "@/modules/projects/application/actions/getProjectBySlug.action";
 import type { Project } from "@/modules/projects/domain/entities/project.entity";
 
@@ -9,7 +9,6 @@ export const useGetProject = (slug: string) => {
   useEffect(() => {
     getProject();
   }, [slug]);
-
 
   const getProject = async () => {
     if (!slug) return;
