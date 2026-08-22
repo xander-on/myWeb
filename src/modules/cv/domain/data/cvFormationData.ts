@@ -43,15 +43,15 @@ export const formation = [
         ]
       },
 
-      {
-        "name": "Vue JS",
-        "description": [
-          "Servicios",
-          "State Vuex",
-          "Formularios",
-          "Rutas",
-        ]
-      },
+      // {
+      //   "name": "Vue JS",
+      //   "description": [
+      //     "Servicios",
+      //     "State Vuex",
+      //     "Formularios",
+      //     "Rutas",
+      //   ]
+      // },
 
       {
         "name": "React Native (Apps Moviles)",
@@ -69,6 +69,22 @@ export const formation = [
   {
     "category":"Desarrollo Backend",
     "values":[
+
+      {
+        "name": "C# - .Net",
+        "description": [
+          "API Rest",
+          "Entity Framework",
+          "Dapper",
+          "JWT",
+          "Patrón MVC",
+          "Controllers y Minimal API",
+          "Arquitectura Hexagonal",
+          "Clean Architecture",
+          "Monolito Modular y Vertical Slice"
+        ]
+      },
+
       {
         "name": "NodeJS - NestJs",
         "description": [
@@ -79,16 +95,6 @@ export const formation = [
           "Routes, Controllers y Middlewares",
           "Seguridad y JWT",
           "Arquitectura de Microservicios"
-        ]
-      },
-
-      {
-        "name": "C# - .Net",
-        "description": [
-          "API Rest",
-          "Entity Framework",
-          "Patrón MVC",
-          "Arquitectura Hexagonal"
         ]
       },
 
@@ -134,14 +140,23 @@ export const formation = [
         ]
       },
       {
+        "name": "IA",
+        "description": [
+          "Integración con APIS de IA (OpenAI, Gemini)",
+          "Herramientas de generacion de codigo OpenCode",
+          "Spec Driven Development",
+          // "Ingenieria de Prompts",
+          // "Creacion de RAGs"
+        ]
+      },
+      {
         "name": "Varios",
         "description": [
           "Git / GitHub / GitLab",
           "Github Actions",
           "Docker / Docker Compose",
           "Linux",
-          "Integración con APIS de IA (OpenAI, Gemini)",
-          // "Ingenieria de Prompts",
+          
           "Principios SOLID y Clean Code",
           "Accesibilidad y Optimización web",
           "Fundamentos de Experiencia de Usuario (UX)",
