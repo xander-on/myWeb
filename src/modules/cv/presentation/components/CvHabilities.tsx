@@ -13,7 +13,7 @@ export const CVHabilities = () => {
             (h, index) => 
             <li 
               key={index}
-              className="md:w-1/2 mb-2"
+              className="md:w-1/3 mb-1"
             >
               <span>{h}</span>
             </li> 

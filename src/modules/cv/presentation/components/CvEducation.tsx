@@ -4,24 +4,20 @@ import { AccordeonItem } from "@/modules/shared/presentation/components/Accordeo
 export const CvEducation = () => 
 
   <AccordeonItem id={'educacion'} title={`👨‍🎓 EDUCACIÓN`}>
-    <ul className='text-lg'>
-      <li>
-        <h6>Bachiller Técnico en Sistemas Informáticos</h6>
-        <small>Academia Naval Almirante Illingworth</small>
+    <ul className='text-base'>
+      <li className="mb-2">
+        <h6>* Bachiller Técnico en Sistemas Informáticos</h6>
+        <div>Academia Naval Almirante Illingworth</div>
       </li>
 
-      <br />
-
-      <li>
-        <h6>Carrera de Ingeniería en Sistemas Computacionales</h6>
-        <small>Universidad de Guayaquil</small>
+      <li className="mb-2">
+        <h6>* Carrera de Ingeniería en Sistemas Computacionales</h6>
+        <div>Universidad de Guayaquil</div>
       </li>
       
-      <br />
-
-      <li>
-        <h6>Carrera de Desarrollo Web</h6>
-        <small>Formación en línea</small>
+      <li className="mb-2">
+        <h6>* Formación en Desarrollo Web</h6>
+        <div>Formación online</div>
       </li>
       
     </ul>

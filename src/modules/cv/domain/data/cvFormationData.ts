@@ -6,7 +6,6 @@ export const formation = [
         "name":"HTM5 y CSS3",
         "description":[
           "Etiquetado Semántico", 
-          "Maquetación de sitios web",
           "SEO",
           "Diseño Responsive", 
           "FlexBox / Grid Layout",
@@ -136,7 +135,6 @@ export const formation = [
           "Joins, Funciones y Vistas",
           "Triggers",
           "Procedimientos Almacenados",
-          "Optimización de Consultas"
         ]
       },
       {
@@ -144,7 +142,7 @@ export const formation = [
         "description": [
           "Integración con APIS de IA (OpenAI, Gemini)",
           "Herramientas de generacion de codigo OpenCode",
-          "Spec Driven Development",
+          "Spec Driven Development (SDD)",
           // "Ingenieria de Prompts",
           // "Creacion de RAGs"
         ]

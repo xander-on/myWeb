@@ -4,7 +4,7 @@ export const projects = {
     { 
       name: "Medinet App Web", 
       description: [ 
-        "Desarrollo web Frontend Vue Js", 
+        "Desarrollo web Frontend React Js", 
         "Backend con Python Django", 
         "Base de datos con Postgres SQL" 
       ],         
@@ -15,8 +15,8 @@ export const projects = {
       name: "Ultralab Web", 
       description: [ 
         "Desarrollo web Frontend React Js", 
-        "Backend con Java Springboot", 
-        "Base de datos con Postgres SQL" 
+        "Backend API REST .net Core", 
+        "Base de datos con SQL Server" 
       ],         
       link: null 
     },

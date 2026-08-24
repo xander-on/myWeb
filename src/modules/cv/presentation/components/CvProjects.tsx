@@ -15,7 +15,7 @@ export const CvProjects = () => {
           {
             profesionales.map( ({ name, description, link }) => 
               <div key={name} className="mx-2 my-3 m-sm-4">
-                <h6 className="text-lg col-12 col-md-3">{ name }</h6>
+                <h6 className="text-base font-bold col-12 col-md-3">{ name }</h6>
 
                 <ul className="mx-md-2 mx-lg-4 mb-1 list-disc pl-4">
                   {

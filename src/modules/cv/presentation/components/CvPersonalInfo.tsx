@@ -3,8 +3,8 @@
 
 import { CvLogosTech } from './CvLogosTech';
 import { Button } from '@/modules/shared/presentation/neo_brutalist/components/ui/button';
-import { openLink } from '@/modules/shared/presentation/utils/openLink';
 import { personalInfo } from '@/modules/cv/domain/data/personalInfo';
+import { Link } from 'react-router-dom';
 
 
 export const CvPersonalInfo = () => {
@@ -66,21 +66,29 @@ export const CvPersonalInfo = () => {
 
         </div>
 
-
-        <Button 
-          className='my-1'
-          onClick={ ()=> openLink('/projects')}
-        >
-          {'💼 Ver Portafolio'}
-        </Button>
         
-        <Button 
-          variant={'neutral'}
-          className='my-1'
-          onClick={ () => openLink('/certificates')}
+        <Link 
+          to={'https://alexanderweb.cloud/projects'} 
+          target="_blank" 
+          rel="noreferrer"
+        > 
+          <Button className='my-1 w-full'>
+            {'💼 Ver Portafolio'}
+          </Button>
+        </Link>
+        
+        <Link
+          to={'https://alexanderweb.cloud/certificates'} 
+          target="_blank" 
+          rel="noreferrer"
         >
-          {'📄 Ver Certificados'}
-        </Button>
+          <Button 
+            variant={'neutral'}
+            className='my-1 w-full'
+          >
+            {'📄 Ver Certificados'}
+          </Button>
+        </Link>
 
       </div>
     </div>

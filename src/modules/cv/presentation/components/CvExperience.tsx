@@ -7,12 +7,12 @@ export const CvExperience = () => {
       <div className="ml-4 py-2">
 
         <div>
-          <h5 style={{ fontSize: "17px"}}>Servident S.A</h5>
+          <h5 className="text-base font-bold">Servident S.A</h5>
           <h6 style={{ fontSize: "16px"}}>Desarrollador Web <small>(Enero 2024 - Enero 2026)</small></h6>
           <ul className="list-disc pl-4">
-            <li>Desarrollo Frontend React Js - Vue Js</li>
-            <li>Desarrollo Backend con Python Django - Node Js - Java</li>
-            <li>Base de datos y servidores web Nginx</li>
+            <li>Desarrollo Frontend React Js</li>
+            <li>Desarrollo Backend con Python Django - Node Js - .Net</li>
+            <li>Base de datos Postgres SQL - SQL Server</li>
             <li>Modificación y actualización de sitios web de clientes.</li>
           </ul>
         </div>
@@ -20,8 +20,8 @@ export const CvExperience = () => {
         <br />
 
         <div>
-          <h5 style={{ fontSize: "17px"}}>Opa Consulting</h5>
-          <h6 style={{ fontSize: "16px"}}>Área Web : Desarrollador Web <small>(Febrero 2021 - Octubre 2023)</small></h6>
+          <h5 className="text-base font-bold">Opa Consulting</h5>
+          <h6 style={{ fontSize: "16px"}}>Desarrollador Web <small>(Febrero 2021 - Octubre 2023)</small></h6>
           <ul className="list-disc pl-4">
             <li>Creación de prototipos para webs de clientes.</li>
             <li>Maquetación, diseño y animaciones web según los prototipos aprobados.</li>
@@ -33,8 +33,8 @@ export const CvExperience = () => {
         <br />
 
         <div>
-          <h5 style={{ fontSize: "17px"}}>Gobierno Provincial del Guayas </h5>
-          <h6 style={{ fontSize: "16px"}}>Área de sistemas : Auxiliar en soporte de sistemas <small>(Enero 2020 - Julio 2020)</small></h6>
+          <h5 className="text-base font-bold">Gobierno Provincial del Guayas </h5>
+          <h6 style={{ fontSize: "16px"}}>Auxiliar en soporte de sistemas <small>(Enero 2020 - Julio 2020)</small></h6>
           <ul className="list-disc pl-4">
             <li>Instalación y mantenimiento y soporte de equipos de  cómputo.</li>
             <li>Instalación de software utilizados en equipos.</li>
@@ -46,7 +46,7 @@ export const CvExperience = () => {
         <br />
 
         <div>
-          <h5 style={{ fontSize: "17px"}}>Referencias Laborales:</h5>
+          <h5 className="text-base font-bold">Referencias Laborales:</h5>
           <ul className="list-disc pl-4">
             <li>Kevin Litardo - Cel: 0990056213 / Desarrollador web Servident</li>
             <li>José García - Cel: +1 (438) 867 2133 / Líder Web en Opa Consulting</li>
