@@ -2,7 +2,7 @@ import * as SwitchPrimitive from "@radix-ui/react-switch"
 
 import * as React from "react"
 
-import { cn } from "@/modules/shared/presentation/neo_brutalist/lib/utils"
+import { cn } from "@/libraries/neo_brutalist/lib/utils"
 
 function Switch({
   className,

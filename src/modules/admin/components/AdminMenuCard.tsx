@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Card, CardDescription, CardTitle } from "@/modules/shared/presentation/neo_brutalist/components/ui/card";
+import { Card, CardDescription, CardTitle } from "@/libraries/neo_brutalist/components/ui/card";
 
 interface Props {
   title: string;

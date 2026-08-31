@@ -1,4 +1,4 @@
-import { Skeleton } from "@/modules/shared/presentation/neo_brutalist/components/ui/skeleton";
+import { Skeleton } from "@/libraries/neo_brutalist/components/ui/skeleton";
 
 export const ProjectCardSkeleton = ({ repeat }: { repeat: number }) => {
   return (

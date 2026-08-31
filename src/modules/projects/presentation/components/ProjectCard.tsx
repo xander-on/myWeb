@@ -1,5 +1,5 @@
-import { capitalizeFirst, truncateText } from "@/modules/shared/presentation/utils/setText";
-import { Tag } from "@/modules/shared/presentation/components/Tag";
+import { capitalizeFirst, truncateText } from "@/modules/shared/utils/setText";
+import { Tag } from "@/modules/shared/components/Tag";
 import { Link } from "react-router-dom";
 
 import { 
@@ -8,9 +8,9 @@ import {
   CardFooter, 
   CardHeader, 
   CardTitle, 
-} from "@/modules/shared/presentation/neo_brutalist/components/ui/card";
+} from "@/libraries/neo_brutalist/components/ui/card";
 
-import { Button } from "@/modules/shared/presentation/neo_brutalist/components/ui/button";
+import { Button } from "@/libraries/neo_brutalist/components/ui/button";
 import type { Project } from "@/modules/projects/domain/entities/project.entity";
 
 type Props = {

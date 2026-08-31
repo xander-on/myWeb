@@ -1,4 +1,4 @@
-import { AccordeonItem } from "@/modules/shared/presentation/components/AccordeonItem"
+import { AccordeonItem } from "@/modules/shared/components/AccordeonItem"
 import { habilities } from "@/modules/cv/domain/data/habilities";
 
 export const CVHabilities = () => {

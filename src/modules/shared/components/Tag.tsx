@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { techIconMap }     from '@/modules/shared/presentation/constants/tech-icons';
-import { Badge }           from '@/modules/shared/presentation/neo_brutalist/components/ui/badge';
+import { techIconMap }     from '@/modules/shared/constants/tech-icons';
+import { Badge }           from '@/libraries/neo_brutalist/components/ui/badge';
 
 type Props = {
   nameTech: string;

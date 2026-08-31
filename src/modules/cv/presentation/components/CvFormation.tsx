@@ -1,4 +1,4 @@
-import { AccordeonItem } from '@/modules/shared/presentation/components/AccordeonItem';
+import { AccordeonItem } from '@/modules/shared/components/AccordeonItem';
 import { formation } from '@/modules/cv/domain/data/cvFormationData';
 
 export const CvFormation = () => 

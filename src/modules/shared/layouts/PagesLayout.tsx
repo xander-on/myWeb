@@ -1,5 +1,5 @@
-import { Footer } from "@/modules/shared/presentation/components/Footer";
-import { Header } from "@/modules/shared/presentation/components/Header";
+import { Footer } from "@/modules/shared/components/Footer";
+import { Header } from "@/modules/shared/components/Header";
 import { Outlet } from "react-router-dom";
 
 interface PagesLayoutProps {

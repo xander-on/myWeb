@@ -2,8 +2,8 @@ import { useState }  from "react";
 import { useSearchParams }      from "react-router-dom";
 import ReactMarkdown            from 'react-markdown';
 import Zoom                     from "yet-another-react-lightbox/plugins/zoom";
-import { ModalContainer }  from "@/modules/shared/presentation/components/ModalContainer"
-import { Tag }             from "@/modules/shared/presentation/components/Tag"
+import { ModalContainer }  from "@/modules/shared/components/ModalContainer"
+import { Tag }             from "@/modules/shared/components/Tag"
 import Lightbox                 from 'yet-another-react-lightbox';
 import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
 import "yet-another-react-lightbox/styles.css";

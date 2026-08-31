@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-// import { Tag } from "@/modules/shared/presentation/components/Tag";
+// import { Tag } from "@/modules/shared/components/Tag";
 import type { Certificate } from "@/modules/certificates/interfaces/certificate.interface";
 
 interface Props{

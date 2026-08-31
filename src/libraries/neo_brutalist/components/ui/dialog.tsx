@@ -3,7 +3,7 @@ import { X } from "lucide-react"
 
 import * as React from "react"
 
-import { cn } from "@/modules/shared/presentation/neo_brutalist/lib/utils"
+import { cn } from "@/libraries/neo_brutalist/lib/utils"
 
 function Dialog({
   ...props

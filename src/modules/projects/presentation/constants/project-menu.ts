@@ -1,4 +1,4 @@
-import { iconTech } from "@/modules/shared/presentation/constants/tech-icons";
+import { iconTech } from "@/modules/shared/constants/tech-icons";
 import { typeProjects, ALL_ICON } from "./project-icons";
 
 export const menuTech = [

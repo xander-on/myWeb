@@ -1,7 +1,7 @@
 
 
 import { Link }         from "react-router-dom";
-import { AccordeonItem } from "@/modules/shared/presentation/components/AccordeonItem";
+import { AccordeonItem } from "@/modules/shared/components/AccordeonItem";
 import { projects } from "@/modules/cv/domain/data/cvProjectsData";
 
 export const CvProjects = () => {

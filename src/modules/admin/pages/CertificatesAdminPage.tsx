@@ -7,9 +7,9 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/modules/shared/presentation/neo_brutalist/components/ui/table";
-import { Badge } from "@/modules/shared/presentation/neo_brutalist/components/ui/badge";
-import { Button } from "@/modules/shared/presentation/neo_brutalist/components/ui/button";
+} from "@/libraries/neo_brutalist/components/ui/table";
+import { Badge } from "@/libraries/neo_brutalist/components/ui/badge";
+import { Button } from "@/libraries/neo_brutalist/components/ui/button";
 import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
 import { CertificateViewer } from "@/modules/certificates/components/CertificateViewer";
 import { CreateCertificateModal } from "@/modules/admin/components/CreateCertificateModal";

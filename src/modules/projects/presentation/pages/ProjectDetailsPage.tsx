@@ -1,14 +1,14 @@
-import { GeneralLoader }     from "@/modules/shared/presentation/components/GeneralLoader";
-import { capitalizeFirst }   from "@/modules/shared/presentation/utils/setText";
-import { openLink }          from "@/modules/shared/presentation/utils/openLink";
+import { GeneralLoader }     from "@/modules/shared/components/GeneralLoader";
+import { capitalizeFirst }   from "@/modules/shared/utils/setText";
+import { openLink }          from "@/modules/shared/utils/openLink";
 import { faGithub }          from "@fortawesome/free-brands-svg-icons";
 import { faEye }             from "@fortawesome/free-solid-svg-icons";
-import { Gallery }           from "@/modules/shared/presentation/components/Gallery";
-import { Tag }               from "@/modules/shared/presentation/components/Tag";
+import { Gallery }           from "@/modules/shared/components/Gallery";
+import { Tag }               from "@/modules/shared/components/Tag";
 import { FontAwesomeIcon }   from "@fortawesome/react-fontawesome";
 import ReactMarkdown         from "react-markdown";
 import { useGetProject }     from "@/modules/projects/presentation/hooks/useGetProject";
-import { Button }            from "@/modules/shared/presentation/neo_brutalist/components/ui/button";
+import { Button }            from "@/libraries/neo_brutalist/components/ui/button";
 import { useParams }         from "react-router-dom";
 
 export const ProjectDetailsPage = () => {

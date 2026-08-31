@@ -6,10 +6,10 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/modules/shared/presentation/neo_brutalist/components/ui/dialog";
-import { Button } from "@/modules/shared/presentation/neo_brutalist/components/ui/button";
-import { Input } from "@/modules/shared/presentation/neo_brutalist/components/ui/input";
-import { Label } from "@/modules/shared/presentation/neo_brutalist/components/ui/label";
+} from "@/libraries/neo_brutalist/components/ui/dialog";
+import { Button } from "@/libraries/neo_brutalist/components/ui/button";
+import { Input } from "@/libraries/neo_brutalist/components/ui/input";
+import { Label } from "@/libraries/neo_brutalist/components/ui/label";
 import { uploadFileAction } from "@/modules/shared/files/upload-file.action";
 import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
 import { DialogDescription } from "@radix-ui/react-dialog";

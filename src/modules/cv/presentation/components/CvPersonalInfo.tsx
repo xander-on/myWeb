@@ -2,7 +2,7 @@
 
 
 import { CvLogosTech } from './CvLogosTech';
-import { Button } from '@/modules/shared/presentation/neo_brutalist/components/ui/button';
+import { Button } from '@/libraries/neo_brutalist/components/ui/button';
 import { personalInfo } from '@/modules/cv/domain/data/personalInfo';
 import { Link } from 'react-router-dom';
 

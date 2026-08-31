@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/modules/shared/presentation/neo_brutalist/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/libraries/neo_brutalist/components/ui/accordion";
 
 type Props = {
   id?: string,
