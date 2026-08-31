@@ -10,24 +10,34 @@ import {
 import { Button } from "@/modules/shared/presentation/neo_brutalist/components/ui/button";
 import { Input } from "@/modules/shared/presentation/neo_brutalist/components/ui/input";
 import { Label } from "@/modules/shared/presentation/neo_brutalist/components/ui/label";
-import { useCreateCertificate } from "@/modules/certificates/hooks/use-get-certificates";
-import { uploadFileAction } from "@/modules/certificates/actions/upload-file.action";
+import { uploadFileAction } from "@/modules/shared/files/upload-file.action";
+import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
 
 interface Props {
   open        : boolean;
   onOpenChange : (open: boolean) => void;
 }
 
+
+const initialForm = {
+  name        : "",
+  link        : "",
+  description : "",
+  date        : "",
+  image       : "",
+  tags        : "",
+}
+
 export const CreateCertificateModal = ({ open, onOpenChange }: Props) => {
 
-  const { createCertificateMutation } = useCreateCertificate();
+  const { createCertificateMutation } = useCertificates();
 
-  const [name, setName]           = useState("");
-  const [link, setLink]           = useState("");
-  const [description, setDescription] = useState("");
-  const [date, setDate]           = useState("");
+  const [form, setForm] = useState(initialForm);
   const [imageFile, setImageFile] = useState<File | null>(null);
-  const [tags, setTags]           = useState("");
+
+  const updateField = (field: keyof typeof initialForm) => (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => setForm(prev => ({ ...prev, [field]: e.target.value }));
 
   const handleClose = () => {
     if (createCertificateMutation.isPending) return;
@@ -36,19 +46,19 @@ export const CreateCertificateModal = ({ open, onOpenChange }: Props) => {
 
   const handleSubmit = async () => {
     try{
-      let image = "";
+      let image = form.image;
       if (imageFile){
         const uploaded = await uploadFileAction(imageFile);
         image = uploaded.url;
       }
 
       createCertificateMutation.mutate({
-        name,
-        link,
-        description,
-        date: new Date(date).toISOString(),
+        name        : form.name,
+        link        : form.link,
+        description : form.description,
+        date        : new Date(form.date).toISOString(),
         image,
-        tags: tags.split(",").map(t => t.trim()).filter(Boolean),
+        tags        : form.tags.split(",").map(t => t.trim()).filter(Boolean),
       });
 
     }catch(err){
@@ -69,22 +79,30 @@ export const CreateCertificateModal = ({ open, onOpenChange }: Props) => {
         <div className="grid gap-4">
           <div className="grid gap-2">
             <Label>Nombre</Label>
-            <Input value={name} onChange={e => setName(e.target.value)} placeholder="Nombre del certificado" />
+            <Input 
+              value={form.name} 
+              onChange={updateField("name")} 
+              placeholder="Nombre del certificado" 
+            />
           </div>
 
           <div className="grid gap-2">
             <Label>Link</Label>
-            <Input value={link} onChange={e => setLink(e.target.value)} placeholder="https://..." />
+            <Input 
+              value={form.link} 
+              onChange={updateField("link")} 
+              placeholder="https://..." 
+            />
           </div>
 
           <div className="grid gap-2">
             <Label>Descripción</Label>
-            <Input value={description} onChange={e => setDescription(e.target.value)} placeholder="Descripción" />
+            <Input value={form.description} onChange={updateField("description")} placeholder="Descripción" />
           </div>
 
           <div className="grid gap-2">
             <Label>Fecha</Label>
-            <Input type="date" value={date} onChange={e => setDate(e.target.value)} />
+            <Input type="date" value={form.date} onChange={updateField("date")} />
           </div>
 
           <div className="grid gap-2">
@@ -94,7 +112,7 @@ export const CreateCertificateModal = ({ open, onOpenChange }: Props) => {
 
           <div className="grid gap-2">
             <Label>Tags</Label>
-            <Input value={tags} onChange={e => setTags(e.target.value)} placeholder="tag1, tag2, tag3" />
+            <Input value={form.tags} onChange={updateField("tags")} placeholder="tag1, tag2, tag3" />
           </div>
         </div>
 

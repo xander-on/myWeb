@@ -1,15 +1,10 @@
 import { backendApi } from "@/config/api/backendApi";
+import type { UploadFileResponse } from "@/modules/shared/files/upload-file.response";
 
-export interface UploadFileResponse {
-  url           : string;
-  absoluteUrl   : string;
-  originalName  : string;
-  size          : number;
-  mimeType      : string;
-  publicId      : string;
-}
 
-export const uploadFileAction = async (file: File): Promise<UploadFileResponse> => {
+
+export const uploadFileAction = async (file: File)
+: Promise<UploadFileResponse> => {
 
   try{
     const formData = new FormData();

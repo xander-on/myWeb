@@ -10,12 +10,12 @@ import {
 } from "@/modules/shared/presentation/neo_brutalist/components/ui/table";
 import { Badge } from "@/modules/shared/presentation/neo_brutalist/components/ui/badge";
 import { Button } from "@/modules/shared/presentation/neo_brutalist/components/ui/button";
-import { useGetCertificates } from "@/modules/certificates/hooks/use-get-certificates";
+import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
 import { CreateCertificateModal } from "@/modules/admin/components/CreateCertificateModal";
 
 export const CertificatesAdminPage = () => {
 
-  const { getCerfiticatesQuery } = useGetCertificates();
+  const { getCerfiticatesQuery } = useCertificates();
   const certificates = getCerfiticatesQuery.data ?? [];
 
   const [searchParams, setSearchParams] = useSearchParams();

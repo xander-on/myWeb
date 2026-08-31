@@ -1,18 +1,13 @@
 import { backendApi } from "@/config/api/backendApi";
+import type { CreateCertificateRequest } from "../interfaces/create-certificate.request";
 
-export interface CreateCertificateCommand {
-  name        : string;
-  link        : string;
-  description : string;
-  date        : string;
-  image       : string;
-  tags        : string[];
-}
 
-export const createCertificateAction = async (command: CreateCertificateCommand): Promise<void> => {
+
+export const createCertificateAction = async (payload: CreateCertificateRequest)
+: Promise<void> => {
 
   try{
-    const { data } = await backendApi.post("/certificates", command);
+    const { data } = await backendApi.post("/certificates", payload);
 
     if (!data) 
       throw "Error al crear el certificado";

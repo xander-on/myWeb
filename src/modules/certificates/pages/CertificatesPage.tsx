@@ -1,11 +1,11 @@
 import { CertificateCard } from "@/modules/certificates/components/CertificateCard";
-import { useGetCertificates } from "@/modules/certificates/hooks/use-get-certificates";
+import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
 
 
 
 export const CertificatesPage = () => {
 
-  const { getCerfiticatesQuery } = useGetCertificates();
+  const { getCerfiticatesQuery } = useCertificates();
   const certificates = getCerfiticatesQuery.data ?? [];
 
   return (
