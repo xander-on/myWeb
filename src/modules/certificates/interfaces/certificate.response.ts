@@ -1,13 +1,19 @@
 
 
 export interface CertificateResponse {
-  image      : { url: string };
-  name       : string;
-  documentId : string;
-  slug       : string;
-  tags       : { nombre: string }[];
-  fecha      : string;
-  link       : string;
-  description: string;
+  id          : string;
+  slug        : string;
+  name        : string;
+  link        : string;
+  description : string;
+  date        : string;
+  image       : string;
+  tags        : string[];
 }
 
+export interface CertificatesResponse {
+  data  : CertificateResponse[];
+  total : number;
+  limit : number;
+  page  : number;
+}

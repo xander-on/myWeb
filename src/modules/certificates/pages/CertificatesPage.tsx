@@ -1,12 +1,12 @@
 import { CertificateCard } from "@/modules/certificates/components/CertificateCard";
 import { CertificateViewer } from "@/modules/certificates/components/CertificateViewer";
-import { useGetCertificatesFromStrapi } from "@/modules/certificates/hooks/useGetCertificatesFromStrapi";
+import { useGetCertificates2 } from "@/modules/certificates/hooks/useGetCertificates2";
 
 
 
 export const CertificatesPage = () => {
 
-  const { certificates } = useGetCertificatesFromStrapi();
+  const { certificates } = useGetCertificates2();
 
   return (
     <div>

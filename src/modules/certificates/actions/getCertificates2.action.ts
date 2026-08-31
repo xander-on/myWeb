@@ -1,11 +1,11 @@
 import { strapiApi } from "@/modules/shared/infrastructure/api/strapiApi";
-import { CertificateMapper } from "@/modules/certificates/mappers/certificate.mapper";
+import { Certificate2Mapper } from "@/modules/certificates/mappers/certificate2.mapper";
 import type { Certificate } from "@/modules/certificates/interfaces/certificate.interface";
-import type { CertificateResponse } from "@/modules/certificates/interfaces/certificate.response";
+import type { Certificate2Response } from "@/modules/certificates/interfaces/certificate2.response";
 
 type GraphQLResponse = {
   data: {
-    certificados: CertificateResponse[];
+    certificados: Certificate2Response[];
   };
 };
 
@@ -47,5 +47,5 @@ export const getCertificates2Action = async (fieldFilters = {}): Promise<Certifi
   const certificates = response.data.data.certificados;
   if (!certificates) return null;
 
-  return certificates.map(c => CertificateMapper.fromResponseToCertificate(c));
+  return certificates.map(c => Certificate2Mapper.fromResponseToCertificate(c));
 }
