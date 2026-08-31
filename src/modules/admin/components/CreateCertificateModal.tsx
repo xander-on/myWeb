@@ -11,7 +11,7 @@ import { Button } from "@/modules/shared/presentation/neo_brutalist/components/u
 import { Input } from "@/modules/shared/presentation/neo_brutalist/components/ui/input";
 import { Label } from "@/modules/shared/presentation/neo_brutalist/components/ui/label";
 import { useCreateCertificate } from "@/modules/certificates/hooks/use-get-certificates";
-import { uploadFileAction } from "@/modules/certificates/actions/uploadFile.action";
+import { uploadFileAction } from "@/modules/certificates/actions/upload-file.action";
 
 interface Props {
   open        : boolean;

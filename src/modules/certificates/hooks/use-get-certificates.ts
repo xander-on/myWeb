@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { getCertificatesAction } from "@/modules/certificates/actions/getCertificates.action";
-import { createCertificateAction } from "@/modules/certificates/actions/createCertificate.action";
+import { getCertificatesAction } from "@/modules/certificates/actions/get-certificates.action";
+import { createCertificateAction } from "@/modules/certificates/actions/create-certificate.action";
 import type { Certificate } from "@/modules/certificates/interfaces/certificate.interface";
 
 const certificatesQueryKey = ["certificates"] as const;
