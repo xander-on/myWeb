@@ -41,7 +41,7 @@ const routes = [
         element: <CvPage />,
       },
       {
-        path: "/administrator",
+        path: "/admin",
         children: [
           { index: true,          element: <AdministratorPage /> },
           { path: "projects",     element: <ProjectsAdminPage /> },

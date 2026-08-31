@@ -9,12 +9,12 @@ export const AdministratorPage = () => {
         <AdminMenuCard
           title="Projects"
           description="Gestionar proyectos"
-          href="/administrator/projects"
+          href="/admin/projects"
         />
         <AdminMenuCard
           title="Certificates"
           description="Gestionar certificados"
-          href="/administrator/certificates"
+          href="/admin/certificates"
         />
       </div>
     </div>
