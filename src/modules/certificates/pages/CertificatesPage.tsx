@@ -1,12 +1,11 @@
 import { CertificateCard } from "@/modules/certificates/components/CertificateCard";
-import { CertificateViewer } from "@/modules/certificates/components/CertificateViewer";
-import { useGetCertificates2 } from "@/modules/certificates/hooks/useGetCertificates2";
+import { useGetCertificates } from "@/modules/certificates/hooks/useGetCertificates";
 
 
 
 export const CertificatesPage = () => {
 
-  const { certificates } = useGetCertificates2();
+  const { certificates } = useGetCertificates();
 
   return (
     <div>
@@ -16,8 +15,6 @@ export const CertificatesPage = () => {
           certificates.map( c => <CertificateCard key={c.token} certificate={c}/> )
         }
       </div>
-
-      <CertificateViewer />
     </div>
   )
 }
