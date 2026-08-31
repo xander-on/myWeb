@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getProjectBySlugAction } from "@/modules/projects/application/actions/getProjectBySlug.action";
-import type { Project } from "@/modules/projects/domain/entities/project.entity";
+import { getProjectBySlugAction } from "@/modules/projects/actions/getProjectBySlug.action";
+import type { Project } from "@/modules/projects/interfaces/project.entity";
 
 export const useGetProject = (slug: string) => {
   const [project, setProject] = useState<Project | null>(null);

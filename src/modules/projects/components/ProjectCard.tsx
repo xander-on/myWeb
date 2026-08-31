@@ -11,7 +11,7 @@ import {
 } from "@/libraries/neo_brutalist/components/ui/card";
 
 import { Button } from "@/libraries/neo_brutalist/components/ui/button";
-import type { Project } from "@/modules/projects/domain/entities/project.entity";
+import type { Project } from "@/modules/projects/interfaces/project.entity";
 
 type Props = {
   project: Project;

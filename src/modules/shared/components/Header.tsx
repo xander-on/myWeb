@@ -31,6 +31,11 @@ const links = [
     href: "/cv",
     emoji: "📝",
   },
+  {
+    title:"Admin",
+    href: "/admin",
+    emoji: "⚙️",
+  },
 ]
 
 

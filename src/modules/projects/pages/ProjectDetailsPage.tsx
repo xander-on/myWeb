@@ -7,7 +7,7 @@ import { Gallery }           from "@/modules/shared/components/Gallery";
 import { Tag }               from "@/modules/shared/components/Tag";
 import { FontAwesomeIcon }   from "@fortawesome/react-fontawesome";
 import ReactMarkdown         from "react-markdown";
-import { useGetProject }     from "@/modules/projects/presentation/hooks/useGetProject";
+import { useGetProject }     from "@/modules/projects/hooks/useGetProject";
 import { Button }            from "@/libraries/neo_brutalist/components/ui/button";
 import { useParams }         from "react-router-dom";
 

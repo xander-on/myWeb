@@ -1,6 +1,6 @@
-import { ProjectCard }         from "@/modules/projects/presentation/components/ProjectCard";
-import { ProjectCardSkeleton } from "@/modules/projects/presentation/components/ProjectCardSkeleton";
-import { useGetProjects }      from "@/modules/projects/presentation/hooks/useGetProjects";
+import { ProjectCard }         from "@/modules/projects/components/ProjectCard";
+import { ProjectCardSkeleton } from "@/modules/projects/components/ProjectCardSkeleton";
+import { useGetProjects }      from "@/modules/projects/hooks/useGetProjects";
 
 export const ProjectsPage = () => {
   const { projects, loading } = useGetProjects();

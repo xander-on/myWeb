@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomePage }           from "@/modules/web/presentation/pages/HomePage";
-import { ProjectsPage }       from "@/modules/projects/presentation/pages/ProjectsPage";
-import { ProjectDetailsPage } from "@/modules/projects/presentation/pages/ProjectDetailsPage";
+import { ProjectsPage }       from "@/modules/projects/pages/ProjectsPage";
+import { ProjectDetailsPage } from "@/modules/projects/pages/ProjectDetailsPage";
 import { CertificatesPage }   from "@/modules/certificates/pages/CertificatesPage";
 import { PagesLayout }        from "@/modules/shared/layouts/PagesLayout";
 import { CvPage }                from "@/modules/cv/presentation/pages/CvPage";
@@ -18,28 +18,17 @@ const routes = [
   {
     element: <PagesLayout />,
     children:[
-      {
-        path: "/",
-        element: <HomePage />,
-      },
+      { path: "/",            element: <HomePage /> },
+      { path: "certificates", element: <CertificatesPage /> },
+      { path: "contact",      element: <UnderConstructionPage /> },
+      { path: "cv",           element: <CvPage /> },
+      
       {
         path: "projects",
         children: [
           { index: true,   element: <ProjectsPage /> },
           { path: ":slug", element: <ProjectDetailsPage /> },
         ],
-      },
-      {
-        path: "certificates",
-        element: <CertificatesPage />,
-      },
-      {
-        path: "contact",
-        element: <UnderConstructionPage />,
-      },
-      {
-        path: "cv",
-        element: <CvPage />,
       },
       {
         path: "/admin",
@@ -50,10 +39,7 @@ const routes = [
           { path: "tags",         element: <TagsAdminPage /> },
         ],
       },
-      {
-        path: "*",
-        element: <NotFoundPage />,
-      }
+      { path: "*", element: <NotFoundPage /> }
     ]
   },
 ];
