@@ -10,6 +10,7 @@ import { UnderConstructionPage } from "@/modules/shared/pages/UnderConstructionP
 import { AdministratorPage }     from "@/modules/admin/pages/AdministratorPage";
 import { ProjectsAdminPage }     from "@/modules/admin/pages/ProjectsAdminPage";
 import { CertificatesAdminPage } from "@/modules/admin/pages/CertificatesAdminPage";
+import { TagsAdminPage }         from "@/modules/admin/pages/TagsAdminPage";
 
 
 
@@ -46,6 +47,7 @@ const routes = [
           { index: true,          element: <AdministratorPage /> },
           { path: "projects",     element: <ProjectsAdminPage /> },
           { path: "certificates", element: <CertificatesAdminPage /> },
+          { path: "tags",         element: <TagsAdminPage /> },
         ],
       },
       {

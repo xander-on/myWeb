@@ -16,6 +16,11 @@ export const AdministratorPage = () => {
           description="Gestionar certificados"
           href="/admin/certificates"
         />
+        <AdminMenuCard
+          title="Tags"
+          description="Gestionar tags"
+          href="/admin/tags"
+        />
       </div>
     </div>
   )
