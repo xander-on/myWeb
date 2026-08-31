@@ -1,3 +1,5 @@
+import { useSearchParams } from "react-router-dom";
+import { Plus } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -7,16 +9,36 @@ import {
   TableRow,
 } from "@/modules/shared/presentation/neo_brutalist/components/ui/table";
 import { Badge } from "@/modules/shared/presentation/neo_brutalist/components/ui/badge";
+import { Button } from "@/modules/shared/presentation/neo_brutalist/components/ui/button";
 import { useGetCertificates } from "@/modules/certificates/hooks/use-get-certificates";
+import { CreateCertificateModal } from "@/modules/admin/components/CreateCertificateModal";
 
 export const CertificatesAdminPage = () => {
 
   const { getCerfiticatesQuery } = useGetCertificates();
   const certificates = getCerfiticatesQuery.data ?? [];
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const isCreateOpen = searchParams.has("create");
+
+  const openCreate = () => setSearchParams({ create: "1" });
+  const closeCreate = () => {
+    const next = new URLSearchParams(searchParams);
+    next.delete("create");
+    setSearchParams(next);
+  };
+
   return (
     <div className="p-4">
-      <h3 className="my-4 text-3xl font-bold text-center">CERTIFICATES ADMIN</h3>
+      <div className="my-4 flex items-center justify-between">
+        <h3 className="text-3xl font-bold">CERTIFICATES ADMIN</h3>
+        <Button onClick={openCreate}>
+          <Plus />
+          Crear
+        </Button>
+      </div>
+
+      <CreateCertificateModal open={isCreateOpen} onOpenChange={(open) => { if (!open) closeCreate(); }} />
 
       <Table>
         <TableHeader>
