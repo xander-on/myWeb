@@ -4,13 +4,13 @@ import type { Certificate } from "@/modules/certificates/interfaces/certificate.
 
 export const useGetCertificates = () => {
 
-  const { data: certificates = [], isLoading: loading } = useQuery<Certificate[] | null>({
+  const getCerfiticatesQuery = useQuery<Certificate[]>({
     queryKey: ["certificates"],
     queryFn: getCertificatesAction,
+    staleTime: 1000 * 60 * 5
   });
 
   return {
-    certificates: certificates ?? [],
-    loading,
+    getCerfiticatesQuery
   };
 };
