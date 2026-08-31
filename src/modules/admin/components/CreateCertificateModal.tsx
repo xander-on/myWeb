@@ -12,6 +12,7 @@ import { Input } from "@/modules/shared/presentation/neo_brutalist/components/ui
 import { Label } from "@/modules/shared/presentation/neo_brutalist/components/ui/label";
 import { uploadFileAction } from "@/modules/shared/files/upload-file.action";
 import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
+import { DialogDescription } from "@radix-ui/react-dialog";
 
 
 const initialForm = {
@@ -69,9 +70,10 @@ export const CreateCertificateModal = () => {
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent>
+      <DialogContent >
         <DialogHeader>
           <DialogTitle>Create Certificate</DialogTitle>
+          <DialogDescription className="sr-only">Fill the fields to register a new certificate</DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-4">
