@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getCertificatesAction } from "@/modules/certificates/application/actions/getCertificates.action";
-import type { Certificate } from "@/modules/certificates/domain/entities/certificate.entity";
+import { getCertificatesAction } from "@/modules/certificates/actions/getCertificates.action";
+import type { Certificate } from "@/modules/certificates/interfaces/certificate.interface";
 
 export const useGetCertificates = () => {
   const [certificates, setCertificates] = useState<Certificate[]>([]);

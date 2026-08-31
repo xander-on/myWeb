@@ -1,12 +1,13 @@
-import { HomePage } from "@/modules/web/presentation/pages/HomePage";
-import { ProjectsPage } from "@/modules/projects/presentation/pages/ProjectsPage";
-import { ProjectDetailsPage } from "@/modules/projects/presentation/pages/ProjectDetailsPage";
-import { CertificatesPage } from "@/modules/certificates/presentation/pages/CertificatesPage";
-import { CvPage } from "@/modules/cv/presentation/pages/CvPage";
-import { NotFoundPage } from "@/modules/shared/presentation/pages/NotFoundPage";
-import { UnderConstructionPage } from "@/modules/shared/presentation/pages/UnderConstructionPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { PagesLayout } from "@/modules/shared/presentation/layouts/PagesLayout";
+import { HomePage }           from "@/modules/web/presentation/pages/HomePage";
+import { ProjectsPage }       from "@/modules/projects/presentation/pages/ProjectsPage";
+import { ProjectDetailsPage } from "@/modules/projects/presentation/pages/ProjectDetailsPage";
+import { CertificatesPage }   from "@/modules/certificates/pages/CertificatesPage";
+import { PagesLayout }        from "@/modules/shared/presentation/layouts/PagesLayout";
+import { CvPage }                from "@/modules/cv/presentation/pages/CvPage";
+import { NotFoundPage }          from "@/modules/shared/presentation/pages/NotFoundPage";
+import { UnderConstructionPage } from "@/modules/shared/presentation/pages/UnderConstructionPage";
+import { AdministratorPage }     from "@/modules/admin/pages/AdministratorPage";
 
 
 
@@ -37,6 +38,10 @@ const routes = [
       {
         path: "cv",
         element: <CvPage />,
+      },
+      {
+        path: "administrator",
+        element: <AdministratorPage />,
       },
       {
         path: "*",

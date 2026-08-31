@@ -5,7 +5,7 @@ import Zoom                     from "yet-another-react-lightbox/plugins/zoom";
 import { ModalContainer }  from "@/modules/shared/presentation/components/ModalContainer"
 import { Tag }             from "@/modules/shared/presentation/components/Tag"
 import Lightbox                 from 'yet-another-react-lightbox';
-import { useGetCertificate }    from "@/modules/certificates/presentation/hooks/useGetCertificate";
+import { useGetCertificate }    from "@/modules/certificates/hooks/useGetCertificate";
 import "yet-another-react-lightbox/styles.css";
 
 export const CertificateViewer = () => {

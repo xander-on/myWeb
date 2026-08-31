@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 // import { Tag } from "@/modules/shared/presentation/components/Tag";
-import type { Certificate } from "@/modules/certificates/domain/entities/certificate.entity";
+import type { Certificate } from "@/modules/certificates/interfaces/certificate.interface";
 
 interface Props{
   certificate: Certificate

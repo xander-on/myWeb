@@ -1,6 +1,6 @@
-import { CertificateCard } from "@/modules/certificates/presentation/components/CertificateCard";
-import { CertificateViewer } from "@/modules/certificates/presentation/components/CertificateViewer";
-import { useGetCertificates } from "@/modules/certificates/presentation/hooks/useGetCertificates";
+import { CertificateCard } from "@/modules/certificates/components/CertificateCard";
+import { CertificateViewer } from "@/modules/certificates/components/CertificateViewer";
+import { useGetCertificates } from "@/modules/certificates/hooks/useGetCertificates";
 
 
 

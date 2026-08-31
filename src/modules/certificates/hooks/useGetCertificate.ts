@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getCertificateBySlugAction } from "@/modules/certificates/application/actions/getCertificateBySlug.action";
-import type { Certificate } from "@/modules/certificates/domain/entities/certificate.entity";
+import { getCertificateBySlugAction } from "@/modules/certificates/actions/getCertificateBySlug.action";
+import type { Certificate } from "@/modules/certificates/interfaces/certificate.interface";
 
 export const useGetCertificate = (slug: string | null) => {
   const [certificate, setCertificate] = useState<Certificate | null>(null);
