@@ -18,15 +18,9 @@ export const CertificatesAdminPage = () => {
   const { getCerfiticatesQuery } = useCertificates();
   const certificates = getCerfiticatesQuery.data ?? [];
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const isCreateOpen = searchParams.has("create");
+  const [, setSearchParams] = useSearchParams();
 
   const openCreate = () => setSearchParams({ create: "1" });
-  const closeCreate = () => {
-    const next = new URLSearchParams(searchParams);
-    next.delete("create");
-    setSearchParams(next);
-  };
 
   return (
     <div className="p-4">
@@ -38,7 +32,7 @@ export const CertificatesAdminPage = () => {
         </Button>
       </div>
 
-      <CreateCertificateModal open={isCreateOpen} onOpenChange={(open) => { if (!open) closeCreate(); }} />
+      <CreateCertificateModal />
 
       <Table>
         <TableHeader>

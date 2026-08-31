@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -13,43 +13,42 @@ import { Label } from "@/modules/shared/presentation/neo_brutalist/components/ui
 import { uploadFileAction } from "@/modules/shared/files/upload-file.action";
 import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
 
-interface Props {
-  open        : boolean;
-  onOpenChange : (open: boolean) => void;
-}
-
 
 const initialForm = {
   name        : "",
   link        : "",
   description : "",
   date        : "",
-  image       : "",
+  image       : null as File | null,
   tags        : "",
 }
 
-export const CreateCertificateModal = ({ open, onOpenChange }: Props) => {
+export const CreateCertificateModal = () => {
 
   const { createCertificateMutation } = useCertificates();
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const open = searchParams.has("create");
+
   const [form, setForm] = useState(initialForm);
-  const [imageFile, setImageFile] = useState<File | null>(null);
 
   const updateField = (field: keyof typeof initialForm) => (
-    e: React.ChangeEvent<HTMLInputElement>
+    e: ChangeEvent<HTMLInputElement>
   ) => setForm(prev => ({ ...prev, [field]: e.target.value }));
 
   const handleClose = () => {
     if (createCertificateMutation.isPending) return;
-    onOpenChange(false);
+    const next = new URLSearchParams(searchParams);
+    next.delete("create");
+    setSearchParams(next);
   };
 
   const handleSubmit = async () => {
     try{
-      let image = form.image;
-      if (imageFile){
-        const uploaded = await uploadFileAction(imageFile);
-        image = uploaded.url;
+      let image = "";
+      if (form.image){
+        const { url } = await uploadFileAction(form.image);
+        image = url;
       }
 
       createCertificateMutation.mutate({
@@ -70,19 +69,16 @@ export const CreateCertificateModal = ({ open, onOpenChange }: Props) => {
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Crear Certificado</DialogTitle>
-          <DialogDescription>
-            Llena los campos para registrar un nuevo certificado.
-          </DialogDescription>
+          <DialogTitle>Create Certificate</DialogTitle>
         </DialogHeader>
 
         <div className="grid gap-4">
           <div className="grid gap-2">
-            <Label>Nombre</Label>
+            <Label>Name</Label>
             <Input 
               value={form.name} 
               onChange={updateField("name")} 
-              placeholder="Nombre del certificado" 
+              placeholder="Certificate name" 
             />
           </div>
 
@@ -96,32 +92,48 @@ export const CreateCertificateModal = ({ open, onOpenChange }: Props) => {
           </div>
 
           <div className="grid gap-2">
-            <Label>Descripción</Label>
-            <Input value={form.description} onChange={updateField("description")} placeholder="Descripción" />
+            <Label>Description</Label>
+            <Input 
+              value={form.description} 
+              onChange={updateField("description")} 
+              placeholder="Description" 
+            />
           </div>
 
           <div className="grid gap-2">
-            <Label>Fecha</Label>
-            <Input type="date" value={form.date} onChange={updateField("date")} />
+            <Label>Date</Label>
+            <Input 
+              type="date" 
+              value={form.date} 
+              onChange={updateField("date")} 
+            />
           </div>
 
           <div className="grid gap-2">
-            <Label>Imagen</Label>
-            <Input type="file" accept="image/*" onChange={e => setImageFile(e.target.files?.[0] ?? null)} />
+            <Label>Image</Label>
+            <Input 
+              type="file" 
+              accept="image/*" 
+              onChange={e => setForm(prev => ({ ...prev, image: e.target.files?.[0] ?? null }))} 
+            />
           </div>
 
           <div className="grid gap-2">
             <Label>Tags</Label>
-            <Input value={form.tags} onChange={updateField("tags")} placeholder="tag1, tag2, tag3" />
+            <Input 
+              value={form.tags} 
+              onChange={updateField("tags")} 
+              placeholder="tag1, tag2, tag3" 
+            />
           </div>
         </div>
 
         <DialogFooter>
           <Button variant="neutral" onClick={handleClose} disabled={createCertificateMutation.isPending}>
-            Cancelar
+            Cancel
           </Button>
           <Button onClick={handleSubmit} disabled={createCertificateMutation.isPending}>
-            Crear
+            Create
           </Button>
         </DialogFooter>
       </DialogContent>
