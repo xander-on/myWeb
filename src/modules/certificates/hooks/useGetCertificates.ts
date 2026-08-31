@@ -1,25 +1,16 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { getCertificatesAction } from "@/modules/certificates/actions/getCertificates.action";
 import type { Certificate } from "@/modules/certificates/interfaces/certificate.interface";
 
 export const useGetCertificates = () => {
-  const [certificates, setCertificates] = useState<Certificate[]>([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    getCertificates();
-  }, []);
-
-  const getCertificates = async () => {
-    setLoading(true);
-    const responseCertificates = await getCertificatesAction();
-    if (!responseCertificates) return;
-    setCertificates(responseCertificates);
-    setLoading(false);
-  };
+  const { data: certificates = [], isLoading: loading } = useQuery<Certificate[] | null>({
+    queryKey: ["certificates"],
+    queryFn: getCertificatesAction,
+  });
 
   return {
-    certificates,
+    certificates: certificates ?? [],
     loading,
   };
 };
