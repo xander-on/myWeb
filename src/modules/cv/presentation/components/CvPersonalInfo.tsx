@@ -82,7 +82,7 @@ export const CvPersonalInfo = () => {
           target="_blank" 
           rel="noreferrer"
         >
-          <Button 
+          <Button
             variant={'neutral'}
             className='my-1 w-full'
           >
