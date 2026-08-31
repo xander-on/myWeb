@@ -1,51 +1,15 @@
-import { strapiApi } from "@/modules/shared/infrastructure/api/strapiApi";
-import { CertificateMapper } from "@/modules/certificates/mappers/certificate.mapper";
+import { backendApi } from "@/modules/certificates/infrastructure/api/backendApi";
+import { AdminCertificateMapper } from "@/modules/certificates/mappers/adminCertificate.mapper";
 import type { Certificate } from "@/modules/certificates/interfaces/certificate.interface";
-import type { CertificateResponse } from "@/modules/certificates/interfaces/certificate.response";
+import type { BackendCertificatesResponse } from "@/modules/certificates/interfaces/backend-certificate.response";
 
-type GraphQLResponse = {
-  data: {
-    certificados: CertificateResponse[];
-  };
-};
+export const getCertificatesAction = async (): Promise<Certificate[] | null> => {
 
-export const getCertificatesAction = async (fieldFilters = {}): Promise<Certificate[] | null> => {
-
-  const query = `
-    query Certificates(
-      $filters: CertificadoFiltersInput,
-      $pagination: PaginationArg
-    ) {
-      certificados(
-        filters: $filters
-        pagination: $pagination
-      ) {
-        documentId
-        slug
-        name
-        link
-        description
-        fecha
-        image{ url }
-        tags { nombre }
-      }
-    }
-  `;
-
-  const variables = {
-    filters: {
-      ...fieldFilters
-    },
-    pagination: {
-      limit: 50
-    }
-  };
-
-  const response = await strapiApi.post<GraphQLResponse>("", { query, variables });
+  const response = await backendApi.get<BackendCertificatesResponse>("/certificates");
   if (response.status !== 200) return null;
 
-  const certificates = response.data.data.certificados;
+  const certificates = response.data.data;
   if (!certificates) return null;
 
-  return certificates.map(c => CertificateMapper.fromResponseToCertificate(c));
+  return certificates.map(c => AdminCertificateMapper.fromResponseToCertificate(c));
 }

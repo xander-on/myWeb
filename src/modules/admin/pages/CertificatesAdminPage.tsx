@@ -7,11 +7,11 @@ import {
   TableRow,
 } from "@/modules/shared/presentation/neo_brutalist/components/ui/table";
 import { Badge } from "@/modules/shared/presentation/neo_brutalist/components/ui/badge";
-import { useAdminCertificates } from "@/modules/admin/hooks/useAdminCertificates";
+import { useGetCertificates } from "@/modules/certificates/hooks/useGetCertificates";
 
 export const CertificatesAdminPage = () => {
 
-  const { certificates } = useAdminCertificates();
+  const { certificates } = useGetCertificates();
 
   return (
     <div className="p-4">
