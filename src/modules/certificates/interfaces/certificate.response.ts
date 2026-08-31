@@ -11,9 +11,4 @@ export interface CertificateResponse {
   tags        : string[];
 }
 
-export interface CertificatesResponse {
-  data  : CertificateResponse[];
-  total : number;
-  limit : number;
-  page  : number;
-}
+

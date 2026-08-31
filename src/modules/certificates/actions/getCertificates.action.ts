@@ -1,15 +1,21 @@
-import { backendApi } from "@/modules/certificates/infrastructure/api/backendApi";
+import { backendApi } from "@/config/api/backendApi";
 import { CertificateMapper } from "@/modules/certificates/mappers/certificate.mapper";
 import type { Certificate } from "@/modules/certificates/interfaces/certificate.interface";
-import type { CertificatesResponse } from "@/modules/certificates/interfaces/certificate.response";
+import type { Paginated } from "@/modules/shared/interfaces/paginated.reponse";
+import type { CertificateResponse } from "../interfaces/certificate.response";
 
 export const getCertificatesAction = async (): Promise<Certificate[] | null> => {
 
-  const response = await backendApi.get<CertificatesResponse>("/certificates");
-  if (response.status !== 200) return null;
+  try{
+    const { data } = await backendApi.get<Paginated<CertificateResponse>>("/certificates");
 
-  const certificates = response.data.data;
-  if (!certificates) return null;
+    if (!data) return null;
 
-  return certificates.map(c => CertificateMapper.fromResponseToCertificate(c));
+    return data.data.map(c => CertificateMapper.fromResponseToCertificate(c));
+
+  }catch(err){
+    console.log(err);
+    throw "Error al obtener los certificados";
+  }
+  
 }
