@@ -19,9 +19,8 @@ export const CertificatesAdminPage = () => {
 
       <Table>
         <TableHeader>
-          <TableRow>
+          <TableRow className="bg-secondary-background text-main-foreground">
             <TableHead>Nombre</TableHead>
-            <TableHead>Slug</TableHead>
             <TableHead>Fecha</TableHead>
             <TableHead>Link</TableHead>
             <TableHead>Tags</TableHead>
@@ -32,9 +31,11 @@ export const CertificatesAdminPage = () => {
         <TableBody>
           {
             certificates.map((c) => (
-              <TableRow key={c.token}>
-                <TableCell className="font-base">{c.name}</TableCell>
-                <TableCell>{c.slug}</TableCell>
+              <TableRow key={c.token} className="bg-[rgb(170,230,200)] text-main-foreground">
+                <TableCell className="font-base">
+                  <div className="font-heading font-bold">{c.name}</div>
+                  <div className="text-xs opacity-80">{c.slug}</div>
+                </TableCell>
                 <TableCell>{c.fecha}</TableCell>
                 <TableCell>
                   <a href={c.link} target="_blank" rel="noreferrer" className="underline">
