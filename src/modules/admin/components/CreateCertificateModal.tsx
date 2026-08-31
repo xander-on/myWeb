@@ -36,6 +36,8 @@ export const CreateCertificateModal = () => {
     e: ChangeEvent<HTMLInputElement>
   ) => setForm(prev => ({ ...prev, [field]: e.target.value }));
 
+  const isDisabledSubmit = !form.name || !form.image || createCertificateMutation.isPending
+
   const handleClose = () => {
     if (createCertificateMutation.isPending) return;
     const next = new URLSearchParams(searchParams);
@@ -129,10 +131,18 @@ export const CreateCertificateModal = () => {
         </div>
 
         <DialogFooter>
-          <Button variant="neutral" onClick={handleClose} disabled={createCertificateMutation.isPending}>
+          <Button 
+            variant="neutral" 
+            onClick={handleClose} 
+            disabled={createCertificateMutation.isPending}
+          >
             Cancel
           </Button>
-          <Button onClick={handleSubmit} disabled={createCertificateMutation.isPending}>
+
+          <Button 
+            onClick={handleSubmit} 
+            disabled={isDisabledSubmit}
+          >
             Create
           </Button>
         </DialogFooter>

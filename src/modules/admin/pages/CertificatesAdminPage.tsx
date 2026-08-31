@@ -15,18 +15,16 @@ import { CreateCertificateModal } from "@/modules/admin/components/CreateCertifi
 
 export const CertificatesAdminPage = () => {
 
+  const [, setSearchParams] = useSearchParams();
   const { getCerfiticatesQuery } = useCertificates();
   const certificates = getCerfiticatesQuery.data ?? [];
 
-  const [, setSearchParams] = useSearchParams();
-
-  const openCreate = () => setSearchParams({ create: "1" });
 
   return (
     <div className="p-4">
       <div className="my-4 flex items-center justify-between">
         <h3 className="text-3xl font-bold">CERTIFICATES ADMIN</h3>
-        <Button onClick={openCreate}>
+        <Button onClick={() => setSearchParams({ create: "1" })}>
           <Plus />
           Crear
         </Button>
