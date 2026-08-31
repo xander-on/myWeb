@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import { Plus } from "lucide-react";
+import { Plus, Eye } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -11,6 +11,7 @@ import {
 import { Badge } from "@/modules/shared/presentation/neo_brutalist/components/ui/badge";
 import { Button } from "@/modules/shared/presentation/neo_brutalist/components/ui/button";
 import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
+import { CertificateViewer } from "@/modules/certificates/components/CertificateViewer";
 import { CreateCertificateModal } from "@/modules/admin/components/CreateCertificateModal";
 
 export const CertificatesAdminPage = () => {
@@ -31,6 +32,7 @@ export const CertificatesAdminPage = () => {
       </div>
 
       <CreateCertificateModal />
+      <CertificateViewer />
 
       <Table>
         <TableHeader>
@@ -40,6 +42,7 @@ export const CertificatesAdminPage = () => {
             <TableHead>Link</TableHead>
             <TableHead>Tags</TableHead>
             <TableHead>Imagen</TableHead>
+            <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
 
@@ -66,6 +69,11 @@ export const CertificatesAdminPage = () => {
                 </TableCell>
                 <TableCell>
                   <img src={c.image} alt={c.name} className="h-12 w-16 object-cover border border-border" />
+                </TableCell>
+                <TableCell>
+                  <Button size="icon" variant="neutral" onClick={() => setSearchParams({ view: c.slug })}>
+                    <Eye />
+                  </Button>
                 </TableCell>
               </TableRow>
             ))
