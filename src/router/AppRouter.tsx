@@ -8,6 +8,8 @@ import { CvPage }                from "@/modules/cv/presentation/pages/CvPage";
 import { NotFoundPage }          from "@/modules/shared/presentation/pages/NotFoundPage";
 import { UnderConstructionPage } from "@/modules/shared/presentation/pages/UnderConstructionPage";
 import { AdministratorPage }     from "@/modules/admin/pages/AdministratorPage";
+import { ProjectsAdminPage }     from "@/modules/admin/pages/ProjectsAdminPage";
+import { CertificatesAdminPage } from "@/modules/admin/pages/CertificatesAdminPage";
 
 
 
@@ -21,11 +23,10 @@ const routes = [
       },
       {
         path: "projects",
-        element: <ProjectsPage />,
-      },
-      {
-        path: "projects/:slug",
-        element: <ProjectDetailsPage />,
+        children: [
+          { index: true,   element: <ProjectsPage /> },
+          { path: ":slug", element: <ProjectDetailsPage /> },
+        ],
       },
       {
         path: "certificates",
@@ -40,8 +41,12 @@ const routes = [
         element: <CvPage />,
       },
       {
-        path: "administrator",
-        element: <AdministratorPage />,
+        path: "/administrator",
+        children: [
+          { index: true,          element: <AdministratorPage /> },
+          { path: "projects",     element: <ProjectsAdminPage /> },
+          { path: "certificates", element: <CertificatesAdminPage /> },
+        ],
       },
       {
         path: "*",
