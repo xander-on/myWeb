@@ -71,7 +71,11 @@ export const CertificatesAdminPage = () => {
                   <img src={c.image} alt={c.name} className="h-12 w-16 object-cover border border-border" />
                 </TableCell>
                 <TableCell>
-                  <Button size="icon" variant="neutral" onClick={() => setSearchParams({ view: c.slug })}>
+                  <Button 
+                    size="icon" 
+                    variant="neutral" 
+                    onClick={() => setSearchParams({ view: c.slug })}
+                  >
                     <Eye />
                   </Button>
                 </TableCell>

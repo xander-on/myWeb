@@ -1,4 +1,4 @@
-import { strapiApi } from "@/modules/shared/infrastructure/api/strapiApi";
+import { strapiApi } from "@/config/api/strapiApi";
 import { ProjectMapper } from "@/modules/projects/infrastructure/mappers/project.mapper";
 import type { Project } from "@/modules/projects/domain/entities/project.entity";
 import type { ProjectResponse } from "@/modules/projects/infrastructure/interfaces/project.response";
