@@ -1,6 +1,9 @@
 
 
 
+import type { CertificateTag } from "@/modules/certificates/interfaces/certificate.response";
+
+
 export interface Certificate {
   token       : string;
   slug        : string;
@@ -9,6 +12,6 @@ export interface Certificate {
   description : string;
   fecha?      : string;
   image       : string,
-  tags        : string[]
+  tags        : CertificateTag[]
 }
 

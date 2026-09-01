@@ -63,7 +63,7 @@ export const CertificatesAdminPage = () => {
                 <TableCell>
                   <div className="flex flex-wrap gap-1">
                     {c.tags.map((t) => (
-                      <Badge key={t} variant="neutral">{t}</Badge>
+                      <Badge key={t.id} variant="neutral">{t.name}</Badge>
                     ))}
                   </div>
                 </TableCell>

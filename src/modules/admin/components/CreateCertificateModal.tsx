@@ -12,7 +12,10 @@ import { Input } from "@/libraries/neo_brutalist/components/ui/input";
 import { Label } from "@/libraries/neo_brutalist/components/ui/label";
 import { uploadFileAction } from "@/modules/shared/files/upload-file.action";
 import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
+import { useTags } from "@/modules/tags/hooks/use-tags";
+import { MultiSelect } from "@/modules/shared/components/MultiSelect";
 import { DialogDescription } from "@radix-ui/react-dialog";
+import { toast } from "sonner";
 
 
 const initialForm = {
@@ -21,12 +24,15 @@ const initialForm = {
   description : "",
   date        : "",
   image       : null as File | null,
-  tags        : "",
+  tagIds      : [] as string[],
 }
 
 export const CreateCertificateModal = () => {
 
   const { createCertificateMutation } = useCertificates();
+  const { getTagsQuery } = useTags();
+
+  const activeTags = getTagsQuery.data?.filter(t => t.isActive) ?? [];
 
   const [searchParams, setSearchParams] = useSearchParams();
   const open = searchParams.has("create");
@@ -36,6 +42,8 @@ export const CreateCertificateModal = () => {
   const updateField = (field: keyof typeof initialForm) => (
     e: ChangeEvent<HTMLInputElement>
   ) => setForm(prev => ({ ...prev, [field]: e.target.value }));
+
+  const updateTagIds = (tagIds: string[]) => setForm(prev => ({ ...prev, tagIds }));
 
   const isDisabledSubmit = !form.name || !form.image || createCertificateMutation.isPending
 
@@ -58,13 +66,20 @@ export const CreateCertificateModal = () => {
         name        : form.name,
         link        : form.link,
         description : form.description,
-        date        : new Date(form.date).toISOString(),
+        date        : form.date ? new Date(form.date).toISOString() : null,
         image,
-        tags        : form.tags.split(",").map(t => t.trim()).filter(Boolean),
+        tagIds      : form.tagIds,
+      }, {
+        onSuccess: () => {
+          handleClose();
+          toast.success("Certificate creado correctamente");
+        },
+        onError: () => toast.error("Error al crear el certificate")
       });
 
     }catch(err){
       console.log(err);
+      toast.error("Error al crear el certificate");
     }
   };
 
@@ -124,10 +139,11 @@ export const CreateCertificateModal = () => {
 
           <div className="grid gap-2">
             <Label>Tags</Label>
-            <Input 
-              value={form.tags} 
-              onChange={updateField("tags")} 
-              placeholder="tag1, tag2, tag3" 
+            <MultiSelect
+              options={activeTags}
+              value={form.tagIds}
+              onChange={updateTagIds}
+              placeholder="Selecciona los tags"
             />
           </div>
         </div>

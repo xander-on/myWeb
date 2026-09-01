@@ -45,7 +45,7 @@ export const CertificateViewer = () => {
 
           <div className="flex flex-wrap gap-2 mt-2">
             {certificate.tags.map((t) => (
-              <Tag key={t} nameTech={t} />
+              <Tag key={t.id} nameTech={t.name} />
             ))}
           </div>
 

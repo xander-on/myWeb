@@ -2,7 +2,7 @@ export interface CreateCertificateRequest {
   name        : string;
   link        : string;
   description : string;
-  date        : string;
+  date        : string | null;
   image       : string;
-  tags        : string[];
+  tagIds      : string[];
 }
