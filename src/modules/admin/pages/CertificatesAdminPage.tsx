@@ -38,12 +38,12 @@ export const CertificatesAdminPage = () => {
 
       <Table>
         <TableHeader>
-          <TableRow className="bg-secondary-background text-main-foreground">
-            <TableHead>Nombre</TableHead>
-            <TableHead>Fecha</TableHead>
+          <TableRow className="bg-[#1f1f1f] text-main [&_th]:text-main">
+            <TableHead>Name</TableHead>
+            <TableHead>Date</TableHead>
             <TableHead>Link</TableHead>
             <TableHead>Tags</TableHead>
-            <TableHead>Imagen</TableHead>
+            <TableHead>Image</TableHead>
             <TableHead className="text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -51,7 +51,7 @@ export const CertificatesAdminPage = () => {
         <TableBody>
           {
             certificates.map((c) => (
-              <TableRow key={c.token} className="bg-[rgb(170,230,200)] text-main-foreground">
+              <TableRow key={c.token} className="bg-[rgb(170,230,200)] text-main-foreground dark:bg-transparent dark:text-foreground">
                 <TableCell className="font-base">
                   <div className="font-heading font-bold">{c.name}</div>
                   <div className="text-xs opacity-80">{c.slug}</div>
@@ -77,6 +77,7 @@ export const CertificatesAdminPage = () => {
                     <Button 
                       size="icon" 
                       variant="neutral" 
+                      className="bg-blue-500 text-black"
                       onClick={() => setSearchParams({ view: c.slug })}
                     >
                       <Eye />
@@ -84,7 +85,7 @@ export const CertificatesAdminPage = () => {
                     <Button 
                       size="icon" 
                       variant="neutral" 
-                      className="bg-red-500 dark:bg-red-800 text-black"
+                      className="bg-red-500 text-black"
                       onClick={() => setSearchParams({ delete: c.token })}
                     >
                       <Trash2 />
