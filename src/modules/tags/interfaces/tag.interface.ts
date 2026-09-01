@@ -1,5 +1,5 @@
 export interface Tag {
-  token    : string;
+  id       : string;
   name     : string;
   isActive : boolean;
 }

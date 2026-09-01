@@ -1,7 +1,8 @@
 import { backendApi } from "@/config/api/backendApi";
 
 export interface UpdateTagRequest {
-  token    : string;
+  id       : string;
+  name?    : string;
   isActive : boolean;
 }
 
@@ -9,7 +10,8 @@ export const updateTagAction = async (payload: UpdateTagRequest)
 : Promise<void> => {
 
   try{
-    const { data } = await backendApi.patch(`/tags/${payload.token}`, {
+    const { data } = await backendApi.patch(`/tags/${payload.id}`, {
+      name: payload.name,
       isActive: payload.isActive
     });
 
