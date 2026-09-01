@@ -129,15 +129,6 @@ export const CreateCertificateModal = () => {
           </div>
 
           <div className="grid gap-2">
-            <Label>Image</Label>
-            <Input 
-              type="file" 
-              accept="image/*" 
-              onChange={e => setForm(prev => ({ ...prev, image: e.target.files?.[0] ?? null }))} 
-            />
-          </div>
-
-          <div className="grid gap-2">
             <Label>Tags</Label>
             <MultiSelect
               options={activeTags}
@@ -146,9 +137,20 @@ export const CreateCertificateModal = () => {
               placeholder="Selecciona los tags"
             />
           </div>
+
+          <div className="grid gap-2">
+            <Label>Image</Label>
+            <Input 
+              type="file" 
+              accept="image/*" 
+              onChange={e => setForm(prev => ({ ...prev, image: e.target.files?.[0] ?? null }))} 
+            />
+          </div>
+
+          
         </div>
 
-        <DialogFooter>
+        <DialogFooter className="mt-6">
           <Button 
             variant="neutral" 
             onClick={handleClose} 
