@@ -13,7 +13,6 @@ import { CertificatesAdminPage } from "@/modules/admin/pages/CertificatesAdminPa
 import { TagsAdminPage }         from "@/modules/admin/pages/TagsAdminPage";
 
 
-
 const routes = [
   {
     element: <PagesLayout />,
@@ -22,7 +21,7 @@ const routes = [
       { path: "certificates", element: <CertificatesPage /> },
       { path: "contact",      element: <UnderConstructionPage /> },
       { path: "cv",           element: <CvPage /> },
-      
+
       {
         path: "projects",
         children: [
