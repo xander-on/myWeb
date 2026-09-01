@@ -103,3 +103,10 @@
 
   }
 }
+
+/* sonner: fondo verde suave semi-transparente solo en toasts de exito */
+[data-sonner-toast][data-type="success"] {
+  --normal-bg: rgb(4 200 108 / 0.9);
+  --normal-text: var(--foreground);
+  --normal-border: var(--border);
+}

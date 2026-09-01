@@ -11,6 +11,7 @@ import { Button } from "@/libraries/neo_brutalist/components/ui/button";
 import { Input } from "@/libraries/neo_brutalist/components/ui/input";
 import { Label } from "@/libraries/neo_brutalist/components/ui/label";
 import { useTags } from "@/modules/tags/hooks/use-tags";
+import { toast } from "sonner";
 import { DialogDescription } from "@radix-ui/react-dialog";
 
 
@@ -36,7 +37,13 @@ export const CreateTagModal = () => {
   const handleSubmit = () => {
     createTagMutation.mutate(
       { name },
-      { onSuccess: handleClose }
+      {
+        onSuccess: () => {
+          handleClose();
+          toast.success("Tag creado correctamente");
+        },
+        onError: () => toast.error("Error al crear el tag")
+      }
     );
   };
 

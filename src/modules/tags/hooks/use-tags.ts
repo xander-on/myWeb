@@ -15,7 +15,6 @@ export const useTags = () => {
     staleTime: 1000 * 60 * 5
   });
 
-
   const createTagMutation = useMutation({
     mutationFn: createTagAction,
     onSuccess: () => getTagsQuery.refetch()

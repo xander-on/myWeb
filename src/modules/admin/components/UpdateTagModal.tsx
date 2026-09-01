@@ -13,6 +13,7 @@ import { Input }   from "@/libraries/neo_brutalist/components/ui/input";
 import { Label }   from "@/libraries/neo_brutalist/components/ui/label";
 import { Switch }  from "@/libraries/neo_brutalist/components/ui/switch";
 import { useTags } from "@/modules/tags/hooks/use-tags";
+import { toast } from "sonner";
 
 
 const initialForm = {
@@ -63,7 +64,13 @@ export const UpdateTagModal = () => {
 
     updateTagMutation.mutate(
       dataTag,
-      { onSuccess: onClose }
+      {
+        onSuccess: () => {
+          onClose();
+          toast.success("Tag actualizado correctamente");
+        },
+        onError: () => toast.error("Error al actualizar el tag")
+      }
     );
   };
 
