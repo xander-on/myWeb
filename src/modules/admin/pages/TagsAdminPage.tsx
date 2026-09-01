@@ -43,7 +43,7 @@ export const TagsAdminPage = () => {
 
       <Table>
         <TableHeader>
-          <TableRow className="bg-secondary-background text-main-foreground">
+          <TableRow className="bg-[#1f1f1f] text-main [&_th]:text-main">
             <TableHead>Name</TableHead>
             <TableHead>Status</TableHead>
             <TableHead className="text-right">Actions</TableHead>
@@ -53,7 +53,7 @@ export const TagsAdminPage = () => {
         <TableBody>
           {
             tags.map((t) => (
-              <TableRow key={t.id} className="bg-[rgb(170,230,200)] text-main-foreground">
+              <TableRow key={t.id} className="bg-[rgb(170,230,200)] text-main-foreground dark:bg-transparent dark:text-foreground">
                 <TableCell className="font-base">
                   <div className="font-heading font-bold">{t.name}</div>
                 </TableCell>
@@ -63,7 +63,7 @@ export const TagsAdminPage = () => {
                     <Button
                       size="icon"
                       variant="neutral"
-                      className="bg-[#FFB300]"
+                      className="bg-yellow-500 text-black"
                       onClick={() => setSearchParams({ update: t.id })}
                     >
                       <Pencil />
@@ -71,6 +71,7 @@ export const TagsAdminPage = () => {
                     <Button
                       size="icon"
                       variant="neutral"
+                      className="bg-red-500 text-black"
                       onClick={() => handleDelete(t.id)}
                       disabled={deleteTagMutation.isPending}
                     >
