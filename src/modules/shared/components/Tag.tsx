@@ -11,12 +11,10 @@ export const Tag = ({nameTech}:Props) => {
 
   const icon = techIconMap[nameTech.toLowerCase()];
 
-  if(!icon) return null;
-
   return(
     <Badge className="">
-      <FontAwesomeIcon icon={icon} />
-      <span className="mr-1">{nameTech.toUpperCase()}</span>
+      {icon && <FontAwesomeIcon icon={icon} />}
+      <span className={icon ? "mr-1" : ""}>{nameTech.toUpperCase()}</span>
     </Badge>
   )
 }
