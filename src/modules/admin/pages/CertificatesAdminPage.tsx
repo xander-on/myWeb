@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import { Plus, Eye, Trash2 } from "lucide-react";
+import { Plus, Eye, Pencil, Trash2 } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -14,6 +14,7 @@ import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
 import { CertificateViewer } from "@/modules/certificates/components/CertificateViewer";
 import { CreateCertificateModal } from "@/modules/admin/components/CreateCertificateModal";
 import { DeleteCertificateModal } from "@/modules/admin/components/DeleteCertificateModal";
+import { UpdateCertificateModal } from "@/modules/admin/components/UpdateCertificateModal";
 
 export const CertificatesAdminPage = () => {
 
@@ -34,6 +35,7 @@ export const CertificatesAdminPage = () => {
 
       <CreateCertificateModal />
       <DeleteCertificateModal />
+      <UpdateCertificateModal />
       <CertificateViewer />
 
       <Table>
@@ -81,6 +83,14 @@ export const CertificatesAdminPage = () => {
                       onClick={() => setSearchParams({ view: c.slug })}
                     >
                       <Eye />
+                    </Button>
+                    <Button 
+                      size="icon" 
+                      variant="neutral" 
+                      className="bg-yellow-500 text-black"
+                      onClick={() => setSearchParams({ update: c.token })}
+                    >
+                      <Pencil />
                     </Button>
                     <Button 
                       size="icon" 

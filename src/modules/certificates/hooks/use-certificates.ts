@@ -2,6 +2,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { getCertificatesAction } from "@/modules/certificates/actions/get-certificates.action";
 import { createCertificateAction } from "@/modules/certificates/actions/create-certificate.action";
 import { deleteCertificateAction } from "@/modules/certificates/actions/delete-certificate.action";
+import { updateCertificateAction } from "@/modules/certificates/actions/update-certificate.action";
 import type { Certificate } from "@/modules/certificates/interfaces/certificate.interface";
 
 const certificatesQueryKey = ["certificates"] as const;
@@ -25,9 +26,15 @@ export const useCertificates = () => {
     onSuccess: () => getCerfiticatesQuery.refetch()
   });
 
+  const updateCertificateMutation = useMutation({
+    mutationFn: updateCertificateAction,
+    onSuccess: () => getCerfiticatesQuery.refetch()
+  });
+
   return {
     getCerfiticatesQuery,
     createCertificateMutation,
-    deleteCertificateMutation
+    deleteCertificateMutation,
+    updateCertificateMutation
   }
 }
