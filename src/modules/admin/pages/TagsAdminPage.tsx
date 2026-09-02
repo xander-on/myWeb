@@ -9,24 +9,16 @@ import {
   TableRow,
 } from "@/libraries/neo_brutalist/components/ui/table";
 import { Button } from "@/libraries/neo_brutalist/components/ui/button";
-import { toast } from "sonner";
 import { useTags } from "@/modules/tags/hooks/use-tags";
 import { CreateTagModal } from "@/modules/admin/components/CreateTagModal";
 import { UpdateTagModal } from "@/modules/admin/components/UpdateTagModal";
+import { DeleteTagModal } from "@/modules/admin/components/DeleteTagModal";
 
 export const TagsAdminPage = () => {
 
   const [, setSearchParams] = useSearchParams();
-  const { getTagsQuery, deleteTagMutation } = useTags();
+  const { getTagsQuery } = useTags();
   const tags = getTagsQuery.data ?? [];
-
-  const handleDelete = (id: string) => {
-    if (!confirm("Are you sure you want to delete this tag?")) return;
-    deleteTagMutation.mutate(id, {
-      onSuccess: () => toast.success("Tag eliminado correctamente"),
-      onError: () => toast.error("Error al eliminar el tag")
-    });
-  };
 
   return (
     <div className="p-4">
@@ -40,6 +32,7 @@ export const TagsAdminPage = () => {
 
       <CreateTagModal />
       <UpdateTagModal />
+      <DeleteTagModal />
 
       <Table>
         <TableHeader>
@@ -72,8 +65,7 @@ export const TagsAdminPage = () => {
                       size="icon"
                       variant="neutral"
                       className="bg-red-500 text-black"
-                      onClick={() => handleDelete(t.id)}
-                      disabled={deleteTagMutation.isPending}
+                      onClick={() => setSearchParams({ delete: t.id })}
                     >
                       <Trash2 />
                     </Button>

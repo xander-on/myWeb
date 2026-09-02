@@ -8,21 +8,21 @@ import {
   DialogTitle,
 } from "@/libraries/neo_brutalist/components/ui/dialog";
 import { Button } from "@/libraries/neo_brutalist/components/ui/button";
-import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
+import { useTags } from "@/modules/tags/hooks/use-tags";
 import { toast } from "sonner";
 
 
-export const DeleteCertificateModal = () => {
+export const DeleteTagModal = () => {
 
-  const { getCerfiticatesQuery, deleteCertificateMutation } = useCertificates();
-  const certificates = getCerfiticatesQuery.data ?? [];
+  const { getTagsQuery, deleteTagMutation } = useTags();
+  const tags = getTagsQuery.data ?? [];
 
   const [searchParams, setSearchParams] = useSearchParams();
   const deleteId = searchParams.get("delete");
   const open = !!deleteId;
 
-  const certificate = certificates.find(c => c.token === deleteId);
-  const isPending = deleteCertificateMutation.isPending;
+  const tag = tags.find(t => t.id === deleteId);
+  const isPending = deleteTagMutation.isPending;
 
   const onClose = () => {
     if (isPending) return;
@@ -34,14 +34,14 @@ export const DeleteCertificateModal = () => {
   const onDelete = () => {
     if (!deleteId) return;
 
-    deleteCertificateMutation.mutate(
+    deleteTagMutation.mutate(
       deleteId,
       {
         onSuccess: () => {
           onClose();
-          toast.success("Certificate eliminado correctamente");
+          toast.success("Tag eliminado correctamente");
         },
-        onError: () => toast.error("Error al eliminar el certificate")
+        onError: () => toast.error("Error al eliminar el tag")
       }
     );
   };
@@ -53,19 +53,19 @@ export const DeleteCertificateModal = () => {
     >
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Delete Certificate</DialogTitle>
+          <DialogTitle>Delete Tag</DialogTitle>
           <DialogDescription className="sr-only">
-            Confirm deletion of the certificate
+            Confirm deletion of the tag
           </DialogDescription>
         </DialogHeader>
 
-        {certificate ? (
+        {tag ? (
           <p>
-            ¿Seguro que deseas eliminar el certificate{" "}
-            <span className="font-bold">{certificate.name}</span>? Esta acción no se puede deshacer.
+            ¿Seguro que deseas eliminar el tag{" "}
+            <span className="font-bold">{tag.name}</span>? Esta acción no se puede deshacer.
           </p>
         ) : (
-          <p>Certificate not found</p>
+          <p>Tag not found</p>
         )}
 
         <DialogFooter className="mt-6 flex justify-end gap-2">
@@ -77,7 +77,7 @@ export const DeleteCertificateModal = () => {
             Cancel
           </Button>
 
-          {certificate && (
+          {tag && (
             <Button
               className="bg-red-500 text-black"
               onClick={onDelete}
