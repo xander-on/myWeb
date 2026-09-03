@@ -13,6 +13,7 @@ import { CertificatesAdminPage } from "@/modules/admin/pages/CertificatesAdminPa
 import { TagsAdminPage }         from "@/modules/admin/pages/TagsAdminPage";
 import { RegisterPage }          from "@/modules/auth/pages/RegisterPage";
 import { LoginPage }             from "@/modules/auth/pages/LoginPage";
+import { PrivateRoutes }         from "@/router/PrivateRoutes";
 
 
 const routes = [
@@ -33,13 +34,19 @@ const routes = [
           { path: ":slug", element: <ProjectDetailsPage /> },
         ],
       },
+      
       {
-        path: "/admin",
+        element: <PrivateRoutes />,
         children: [
-          { index: true,          element: <AdministratorPage /> },
-          { path: "projects",     element: <ProjectsAdminPage /> },
-          { path: "certificates", element: <CertificatesAdminPage /> },
-          { path: "tags",         element: <TagsAdminPage /> },
+          {
+            path: "/admin",
+            children: [
+              { index: true,          element: <AdministratorPage /> },
+              { path: "projects",     element: <ProjectsAdminPage /> },
+              { path: "certificates", element: <CertificatesAdminPage /> },
+              { path: "tags",         element: <TagsAdminPage /> },
+            ],
+          },
         ],
       },
       { path: "*", element: <NotFoundPage /> }
