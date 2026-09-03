@@ -1,2 +1,3 @@
 export { RegisterPage } from "@/modules/auth/pages/RegisterPage";
-export { useAuth } from "@/modules/auth/hooks/use-auth";
+export { LoginPage }    from "@/modules/auth/pages/LoginPage";
+export { useAuth }      from "@/modules/auth/hooks/use-auth";
