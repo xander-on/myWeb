@@ -10,6 +10,7 @@ import { Sun, Moon, Menu, X, LogOut } from "lucide-react";
 import { Button }    from "@/libraries/neo_brutalist/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "@/modules/auth/hooks/use-auth";
 
 const links = [
   {
@@ -42,10 +43,12 @@ export const Header = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
-  const isAuthenticated = !!localStorage.getItem("token");
+  const { verifyAuth } = useAuth();
+  const { isValid, refetch } = verifyAuth;
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    refetch();
     navigate("/login");
   };
 
@@ -91,7 +94,7 @@ export const Header = () => {
                 </NavigationMenuLink>
               </NavigationMenuItem>
             ))}
-            {isAuthenticated && (
+            {isValid && (
               <NavigationMenuItem className="px-3 text-white">
                 <NavigationMenuLink asChild>
                   <Link to="/admin">
@@ -100,7 +103,7 @@ export const Header = () => {
                 </NavigationMenuLink>
               </NavigationMenuItem>
             )}
-            {isAuthenticated ? (
+            {isValid ? (
               <NavigationMenuItem className="px-3 text-white">
                 <Button
                   variant="neutral"
