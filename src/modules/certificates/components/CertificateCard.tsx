@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-// import { Tag } from "@/modules/shared/components/Tag";
+import { Tag } from "@/modules/shared/components/Tag";
 import type { Certificate } from "@/modules/certificates/interfaces/certificate.interface";
 
 interface Props{
@@ -20,10 +20,15 @@ export const CertificateCard = ({ certificate }: Props) => {
 
         <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/40 to-transparent" />
 
-        <div className="absolute bottom-2 left-0 right-0 p-3 text-green-400 text-bold ">
+        <div className="absolute bottom-2 left-0 right-0 py-1 px-3 text-green-400 text-bold ">
           <h6 className="text-sm font-semibold">
-            {certificate.name}
+            {certificate.name.toUpperCase()}
           </h6>
+          <div className="flex flex-wrap gap-1 mt-1">
+            {certificate.tags.map(tag => (
+              <Tag key={tag.id} nameTech={tag.name} />
+            ))}
+          </div>
         </div>
       </div>
     </Link>

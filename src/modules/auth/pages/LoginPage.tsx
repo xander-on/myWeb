@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/libraries/neo_brutalist/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/libraries/neo_brutalist/components/ui/card";
 import { Input } from "@/libraries/neo_brutalist/components/ui/input";

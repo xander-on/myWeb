@@ -13,6 +13,7 @@ import { useTags } from "@/modules/tags/hooks/use-tags";
 import { CreateTagModal } from "@/modules/admin/components/CreateTagModal";
 import { UpdateTagModal } from "@/modules/admin/components/UpdateTagModal";
 import { DeleteTagModal } from "@/modules/admin/components/DeleteTagModal";
+import { BackToMenu } from "@/modules/admin/components/BackToMenu";
 
 export const TagsAdminPage = () => {
 
@@ -22,7 +23,8 @@ export const TagsAdminPage = () => {
 
   return (
     <div className="p-4">
-      <div className="my-4 flex items-center justify-between">
+      <BackToMenu />
+      <div className="mb-4 flex items-center justify-between">
         <h3 className="text-3xl font-bold">TAGS ADMIN</h3>
         <Button onClick={() => setSearchParams({ create: "1" })}>
           <Plus />

@@ -8,13 +8,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/libraries/neo_brutalist/components/ui/table";
-import { Badge } from "@/libraries/neo_brutalist/components/ui/badge";
 import { Button } from "@/libraries/neo_brutalist/components/ui/button";
 import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
 import { CertificateViewer } from "@/modules/certificates/components/CertificateViewer";
 import { CreateCertificateModal } from "@/modules/admin/components/CreateCertificateModal";
 import { DeleteCertificateModal } from "@/modules/admin/components/DeleteCertificateModal";
 import { UpdateCertificateModal } from "@/modules/admin/components/UpdateCertificateModal";
+import { Tag } from "@/modules/shared/components/Tag";
+import { BackToMenu } from "@/modules/admin/components/BackToMenu";
 
 export const CertificatesAdminPage = () => {
 
@@ -25,7 +26,8 @@ export const CertificatesAdminPage = () => {
 
   return (
     <div className="p-4">
-      <div className="my-4 flex items-center justify-between">
+      <BackToMenu />
+      <div className="mb-4 flex items-center justify-between">
         <h3 className="text-3xl font-bold">CERTIFICATES ADMIN</h3>
         <Button onClick={() => setSearchParams({ create: "1" })}>
           <Plus />
@@ -43,7 +45,6 @@ export const CertificatesAdminPage = () => {
           <TableRow className="bg-[#1f1f1f] text-main [&_th]:text-main">
             <TableHead>Name</TableHead>
             <TableHead>Date</TableHead>
-            <TableHead>Link</TableHead>
             <TableHead>Tags</TableHead>
             <TableHead>Image</TableHead>
             <TableHead className="text-right">Actions</TableHead>
@@ -60,14 +61,9 @@ export const CertificatesAdminPage = () => {
                 </TableCell>
                 <TableCell>{c.fecha}</TableCell>
                 <TableCell>
-                  <a href={c.link} target="_blank" rel="noreferrer" className="underline">
-                    Ver
-                  </a>
-                </TableCell>
-                <TableCell>
                   <div className="flex flex-wrap gap-1">
                     {c.tags.map((t) => (
-                      <Badge key={t.id} variant="neutral">{t.name}</Badge>
+                      <Tag key={t.id} nameTech={t.name} />
                     ))}
                   </div>
                 </TableCell>
