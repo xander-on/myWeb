@@ -6,8 +6,9 @@ import {
 } from "@/libraries/neo_brutalist/components/ui/navigation-menu";
 import { Link }      from "react-router-dom";
 import { useTheme }  from "@/modules/shared/hooks/useTheme";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import { Sun, Moon, Menu, X, LogOut } from "lucide-react";
 import { Button }    from "@/libraries/neo_brutalist/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const links = [
@@ -31,11 +32,6 @@ const links = [
     href: "/cv",
     emoji: "📝",
   },
-  {
-    title:"Admin",
-    href: "/admin",
-    emoji: "⚙️",
-  },
 ]
 
 
@@ -43,7 +39,15 @@ const links = [
 export const Header = () => {
 
   const { isDark, toggleTheme } = useTheme();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+
+  const isAuthenticated = !!localStorage.getItem("token");
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
   return (
     <NavigationMenu className="max-w-none flex flex-col md:flex-row justify-between px-8 bg-[#1f1f1f] text-main">
@@ -87,6 +91,35 @@ export const Header = () => {
                 </NavigationMenuLink>
               </NavigationMenuItem>
             ))}
+            {isAuthenticated && (
+              <NavigationMenuItem className="px-3 text-white">
+                <NavigationMenuLink asChild>
+                  <Link to="/admin">
+                    ⚙️ Admin
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            )}
+            {isAuthenticated ? (
+              <NavigationMenuItem className="px-3 text-white">
+                <Button
+                  variant="neutral"
+                  className="flex items-center gap-2"
+                  onClick={handleLogout}
+                >
+                  <LogOut className="w-5 h-5" />
+                  Logout
+                </Button>
+              </NavigationMenuItem>
+            ) : (
+              <NavigationMenuItem className="px-3 text-white">
+                <NavigationMenuLink asChild>
+                  <Link to="/login">
+                    👤 Login
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            )}
             <Button 
               className="p-3 m-2" 
               onClick={() => toggleTheme(!isDark)}
