@@ -18,6 +18,7 @@ jobs:
           docker build \
             --build-arg VITE_STRAPI_URL=${{ secrets.VITE_STRAPI_URL }} \
             --build-arg VITE_STRAPI_GRAPHQL=${{ secrets.VITE_STRAPI_GRAPHQL }} \
+            --build-arg VITE_BACKEND_URL=${{ secrets.VITE_BACKEND_URL }} \
             -t xander99/alexanderweb-front:latest .
 
       - name: Push Docker image to Docker Hub
