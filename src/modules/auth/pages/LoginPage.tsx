@@ -4,6 +4,7 @@ import { Button } from "@/libraries/neo_brutalist/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/libraries/neo_brutalist/components/ui/card";
 import { Input } from "@/libraries/neo_brutalist/components/ui/input";
 import { Label } from "@/libraries/neo_brutalist/components/ui/label";
+import { PasswordInput } from "@/modules/shared/components/PasswordInput";
 import { useAuth } from "@/modules/auth/hooks/use-auth";
 import { toast } from "sonner";
 
@@ -66,8 +67,7 @@ export const LoginPage = () => {
 
             <div className="grid gap-2">
               <Label>Password</Label>
-              <Input
-                type="password"
+              <PasswordInput
                 autoComplete="current-password"
                 value={form.password}
                 onChange={updateField("password")}
@@ -82,12 +82,12 @@ export const LoginPage = () => {
         </CardContent>
 
         <CardFooter className="justify-center">
-          <p className="text-center text-sm text-muted-foreground">
+          {/* <p className="text-center text-sm text-muted-foreground">
             ¿No tienes cuenta?{" "}
             <Link to="/register" className="text-main font-semibold hover:underline">
               Regístrate
             </Link>
-          </p>
+          </p> */}
         </CardFooter>
       </Card>
     </div>

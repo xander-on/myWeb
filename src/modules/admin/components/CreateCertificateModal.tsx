@@ -10,6 +10,7 @@ import {
 import { Button } from "@/libraries/neo_brutalist/components/ui/button";
 import { Input } from "@/libraries/neo_brutalist/components/ui/input";
 import { Label } from "@/libraries/neo_brutalist/components/ui/label";
+import { Textarea } from "@/libraries/neo_brutalist/components/ui/textarea";
 import { uploadFileAction } from "@/modules/shared/files/upload-file.action";
 import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
 import { useTags } from "@/modules/tags/hooks/use-tags";
@@ -40,7 +41,7 @@ export const CreateCertificateModal = () => {
   const [form, setForm] = useState(initialForm);
 
   const updateField = (field: keyof typeof initialForm) => (
-    e: ChangeEvent<HTMLInputElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setForm(prev => ({ ...prev, [field]: e.target.value }));
 
   const updateTagIds = (tagIds: string[]) => setForm(prev => ({ ...prev, tagIds }));
@@ -112,10 +113,11 @@ export const CreateCertificateModal = () => {
 
           <div className="grid gap-2">
             <Label>Description</Label>
-            <Input 
+            <Textarea 
               value={form.description} 
               onChange={updateField("description")} 
               placeholder="Description" 
+              rows={3}
             />
           </div>
 
