@@ -11,6 +11,7 @@ import { Button }    from "@/libraries/neo_brutalist/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "@/modules/auth/hooks/use-auth";
+import { isAdmin } from "@/modules/auth/utils/jwt";
 
 const links = [
   {
@@ -45,6 +46,9 @@ export const Header = () => {
 
   const { verifyAuth } = useAuth();
   const { isValid, refetch } = verifyAuth;
+
+  const token = localStorage.getItem("token");
+  const isAdminUser = !!token && isAdmin(token);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -94,7 +98,7 @@ export const Header = () => {
                 </NavigationMenuLink>
               </NavigationMenuItem>
             ))}
-            {isValid && (
+            {isValid && isAdminUser && (
               <NavigationMenuItem className="px-3 text-white">
                 <NavigationMenuLink asChild>
                   <Link to="/admin">

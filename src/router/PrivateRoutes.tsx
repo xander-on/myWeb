@@ -1,6 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "@/modules/auth/hooks/use-auth";
 import { GeneralLoader } from "@/modules/shared/components/GeneralLoader";
+import { isAdmin } from "@/modules/auth/utils/jwt";
 
 export const PrivateRoutes = () => {
   const token = localStorage.getItem("token");
@@ -17,6 +18,9 @@ export const PrivateRoutes = () => {
     localStorage.removeItem("token");
     return <Navigate to="/login" replace />;
   }
+
+  if (!isAdmin(token))
+    return <Navigate to="/" replace />;
 
   return <Outlet />;
 }
