@@ -6,8 +6,8 @@ import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
 
 export const CertificatesPage = () => {
 
-  const { getCerfiticatesQuery } = useCertificates();
-  const certificates = getCerfiticatesQuery.data ?? [];
+  const { searchCertificatesQuery } = useCertificates();
+  const certificates = searchCertificatesQuery.data ?? [];
 
   return (
     <div>

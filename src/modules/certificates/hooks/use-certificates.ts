@@ -4,17 +4,22 @@ import { createCertificateAction } from "@/modules/certificates/actions/create-c
 import { deleteCertificateAction } from "@/modules/certificates/actions/delete-certificate.action";
 import { updateCertificateAction } from "@/modules/certificates/actions/update-certificate.action";
 import type { Certificate } from "@/modules/certificates/interfaces/certificate.interface";
+import { searchCertificatesAction } from "../actions/search-certificates.action";
 
-const certificatesQueryKey = ["certificates"] as const;
 
 export const useCertificates = () => {
 
   const getCerfiticatesQuery = useQuery<Certificate[]>({
-    queryKey: certificatesQueryKey,
+    queryKey: ['all-certificates'],
     queryFn: getCertificatesAction,
     staleTime: 1000 * 60 * 5
   });
 
+  const searchCertificatesQuery = useQuery<Certificate[]>({
+    queryKey: ['search-certificates'],
+    queryFn: searchCertificatesAction,
+    staleTime: 1000 * 60 * 5  
+  });
 
   const createCertificateMutation = useMutation({
     mutationFn: createCertificateAction,
@@ -33,6 +38,8 @@ export const useCertificates = () => {
 
   return {
     getCerfiticatesQuery,
+    searchCertificatesQuery,
+
     createCertificateMutation,
     deleteCertificateMutation,
     updateCertificateMutation
