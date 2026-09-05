@@ -10,9 +10,11 @@ import { toast } from "sonner";
 
 
 const initialForm = {
-  email            : "",
-  password         : "",
-  confirmPassword  : "",
+  firstName       : "",
+  lastName        : "",
+  email           : "",
+  password        : "",
+  confirmPassword : "",
 }
 
 export const RegisterPage = () => {
@@ -27,12 +29,14 @@ export const RegisterPage = () => {
   ) => setForm(prev => ({ ...prev, [field]: e.target.value }));
 
   const isPasswordMismatch = form.password !== form.confirmPassword;
-  const isDisabledSubmit = !form.email || !form.password || !form.confirmPassword || isPasswordMismatch || registerMutation.isPending;
+  const isDisabledSubmit = !form.firstName || !form.lastName || !form.email || !form.password || !form.confirmPassword || isPasswordMismatch || registerMutation.isPending;
 
   const handleSubmit = () => {
     registerMutation.mutate({
-      email    : form.email,
-      password : form.password,
+      firstName : form.firstName,
+      lastName  : form.lastName,
+      email     : form.email,
+      password  : form.password,
     }, {
       onSuccess: () => {
         toast.success("Registro exitoso. Inicia sesión");
@@ -55,6 +59,28 @@ export const RegisterPage = () => {
             className="grid gap-4"
             onSubmit={e => { e.preventDefault(); handleSubmit(); }}
           >
+            <div className="grid gap-2">
+              <Label>First Name</Label>
+              <Input
+                type="text"
+                autoComplete="given-name"
+                value={form.firstName}
+                onChange={updateField("firstName")}
+                placeholder="John"
+              />
+            </div>
+
+            <div className="grid gap-2">
+              <Label>Last Name</Label>
+              <Input
+                type="text"
+                autoComplete="family-name"
+                value={form.lastName}
+                onChange={updateField("lastName")}
+                placeholder="Doe"
+              />
+            </div>
+
             <div className="grid gap-2">
               <Label>Email</Label>
               <Input
