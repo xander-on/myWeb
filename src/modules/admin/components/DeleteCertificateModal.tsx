@@ -8,13 +8,13 @@ import {
   DialogTitle,
 } from "@/libraries/neo_brutalist/components/ui/dialog";
 import { Button } from "@/libraries/neo_brutalist/components/ui/button";
-import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
+import { useCertificates, UseCertificateType } from "@/modules/certificates/hooks/use-certificates";
 import { toast } from "sonner";
 
 
 export const DeleteCertificateModal = () => {
 
-  const { getCerfiticatesQuery, deleteCertificateMutation } = useCertificates();
+  const { getCerfiticatesQuery, deleteCertificateMutation } = useCertificates(UseCertificateType.GET_ALL);
   const certificates = getCerfiticatesQuery.data ?? [];
 
   const [searchParams, setSearchParams] = useSearchParams();

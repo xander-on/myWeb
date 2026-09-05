@@ -9,7 +9,7 @@ import {
   TableRow,
 } from "@/libraries/neo_brutalist/components/ui/table";
 import { Button } from "@/libraries/neo_brutalist/components/ui/button";
-import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
+import { useCertificates, UseCertificateType } from "@/modules/certificates/hooks/use-certificates";
 import { CertificateViewer } from "@/modules/certificates/components/CertificateViewer";
 import { CreateCertificateModal } from "@/modules/admin/components/CreateCertificateModal";
 import { DeleteCertificateModal } from "@/modules/admin/components/DeleteCertificateModal";
@@ -20,7 +20,7 @@ import { BackToMenu } from "@/modules/admin/components/BackToMenu";
 export const CertificatesAdminPage = () => {
 
   const [, setSearchParams] = useSearchParams();
-  const { getCerfiticatesQuery } = useCertificates();
+  const { getCerfiticatesQuery } = useCertificates(UseCertificateType.GET_ALL);
   const certificates = getCerfiticatesQuery.data ?? [];
 
 

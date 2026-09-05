@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogTitle } from "@/libraries/neo_brutalist/co
 import { useModalContainer } from "@/modules/shared/hooks/useModalContainer";
 import { Tag }             from "@/modules/shared/components/Tag"
 import Lightbox                 from 'yet-another-react-lightbox';
-import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
+import { useCertificates, UseCertificateType } from "@/modules/certificates/hooks/use-certificates";
 import "yet-another-react-lightbox/styles.css";
 
 export const CertificateViewer = () => {
@@ -17,8 +17,8 @@ export const CertificateViewer = () => {
 
   const { isVisible, onCloseModal } = useModalContainer("view");
 
-  const { getCerfiticatesQuery } = useCertificates();
-  const certificates = getCerfiticatesQuery.data ?? [];
+  const { searchCertificatesQuery } = useCertificates(UseCertificateType.SEARCH);
+  const certificates = searchCertificatesQuery.data ?? [];
 
   const certificate = certificates.find(c => c.slug === slug);
 

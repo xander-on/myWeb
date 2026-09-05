@@ -6,24 +6,32 @@ import { updateCertificateAction } from "@/modules/certificates/actions/update-c
 import type { Certificate } from "@/modules/certificates/interfaces/certificate.interface";
 import { searchCertificatesAction } from "../actions/search-certificates.action";
 
+export enum UseCertificateType {
+  GET_ALL = 'get-all',
+  SEARCH  = 'search',
+  BY_ID   = 'by-id',
+  MUTATE  = 'mutate'
+}
 
-export const useCertificates = () => {
+export const useCertificates = (queryKey: UseCertificateType) => {
 
   const getCerfiticatesQuery = useQuery<Certificate[]>({
     queryKey: ['all-certificates'],
     queryFn: getCertificatesAction,
-    staleTime: 1000 * 60 * 5
+    staleTime: 1000 * 60 * 5,
+    enabled: queryKey === UseCertificateType.GET_ALL
   });
 
   const searchCertificatesQuery = useQuery<Certificate[]>({
     queryKey: ['search-certificates'],
     queryFn: searchCertificatesAction,
-    staleTime: 1000 * 60 * 5  
+    staleTime: 1000 * 60 * 5,
+    enabled: queryKey === UseCertificateType.SEARCH
   });
 
   const createCertificateMutation = useMutation({
     mutationFn: createCertificateAction,
-    onSuccess: () => getCerfiticatesQuery.refetch()
+    onSuccess: () => getCerfiticatesQuery.refetch(),
   });
 
   const deleteCertificateMutation = useMutation({

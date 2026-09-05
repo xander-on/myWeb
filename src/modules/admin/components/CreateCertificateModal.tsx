@@ -12,7 +12,7 @@ import { Input } from "@/libraries/neo_brutalist/components/ui/input";
 import { Label } from "@/libraries/neo_brutalist/components/ui/label";
 import { Textarea } from "@/libraries/neo_brutalist/components/ui/textarea";
 import { uploadFileAction } from "@/modules/shared/files/upload-file.action";
-import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
+import { useCertificates, UseCertificateType } from "@/modules/certificates/hooks/use-certificates";
 import { useTags } from "@/modules/tags/hooks/use-tags";
 import { MultiSelect } from "@/modules/shared/components/MultiSelect";
 import { DialogDescription } from "@radix-ui/react-dialog";
@@ -30,7 +30,7 @@ const initialForm = {
 
 export const CreateCertificateModal = () => {
 
-  const { createCertificateMutation } = useCertificates();
+  const { createCertificateMutation } = useCertificates(UseCertificateType.MUTATE);
   const { getTagsQuery } = useTags();
 
   const activeTags = getTagsQuery.data?.filter(t => t.isActive) ?? [];

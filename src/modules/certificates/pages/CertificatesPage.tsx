@@ -1,12 +1,12 @@
 import { CertificateCard } from "@/modules/certificates/components/CertificateCard";
 import { CertificateViewer } from "@/modules/certificates/components/CertificateViewer";
-import { useCertificates } from "@/modules/certificates/hooks/use-certificates";
+import { useCertificates, UseCertificateType } from "@/modules/certificates/hooks/use-certificates";
 
 
 
 export const CertificatesPage = () => {
 
-  const { searchCertificatesQuery } = useCertificates();
+  const { searchCertificatesQuery } = useCertificates(UseCertificateType.SEARCH);
   const certificates = searchCertificatesQuery.data ?? [];
 
   return (
